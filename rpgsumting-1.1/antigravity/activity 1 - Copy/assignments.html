@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>University LMS - Assignments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="design.css">
+</head>
+
+<body class="h-screen overflow-hidden flex flex-col">
+    <div id="app-layout" class="flex h-full w-full">
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex flex-col w-64 bg-white/60 backdrop-blur-md border border-white/50 border-r border-slate-200 h-full pt-6 shadow-sm z-10">
+            <div class="px-6 mb-8 flex items-center gap-3">
+                <div
+                    class="w-9 h-9 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-black text-xl shadow-sm">
+                    E
+                </div>
+                <span class="text-2xl font-black tracking-tight text-slate-800">Edu<span
+                        class="text-emerald-700">Connect</span></span>
+            </div>
+            <a href="dashboard.html"
+                class="nav-btn flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                <i class="fa-solid fa-house mr-3 text-xl"></i> Dashboard
+            </a>
+            <a href="lessons.html"
+                class="nav-btn flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                <i class="fa-solid fa-book-open mr-3 text-xl"></i> Course Modules
+            </a>
+            <a href="assignments.html"
+                class="nav-btn active flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                <i class="fa-solid fa-file-arrow-up mr-3 text-xl"></i> Assignments
+            </a>
+            <a href="messages.html"
+                class="nav-btn flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                <i class="fa-solid fa-comments mr-3 text-xl"></i> Forums & Chat
+            </a>
+            <div class="mt-auto border-t border-slate-200 w-full">
+                <a href="profile.html"
+                    class="nav-btn flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                    <i class="fa-solid fa-user mr-3 text-xl"></i> View Profile
+                </a>
+                <a href="login.html"
+                    class="flex items-center w-full py-4 px-6 text-left text-red-600 hover:bg-red-50 transition font-semibold border-t border-slate-100">
+                    <i class="fa-solid fa-arrow-right-from-bracket mr-3 text-xl"></i> Log Out
+                </a>
+            </div>
+        </nav>
+
+        <main class="flex-1 h-full overflow-y-auto bg-transparent pb-20 md:pb-0">
+            <div id="assignment-view" class="p-4 md:p-8">
+                <div class="mb-6 bg-white/60 backdrop-blur-md border border-white/50 p-6 rounded-xl border border-slate-300 shadow-sm">
+                    <h1 class="text-3xl font-bold text-slate-800 mb-2">Assignment Submission</h1>
+                    <p class="text-slate-600">Demonstrates the <strong>Feedback & Error Prevention</strong> HCI
+                        principles. The submit button is disabled until a file is staged, preventing accidental blank
+                        submissions. Visual states change to confirm system status.</p>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="w-full md:w-1/3 bg-white/60 backdrop-blur-md border border-white/50 p-6 rounded-xl shadow-sm border border-slate-200">
+                        <h2 class="text-xl font-bold mb-2">HCI Midterm Project</h2>
+                        <p class="text-sm text-slate-500 mb-4">Due: March 21, 2026, 8:00 PM</p>
+                        <h3 class="font-semibold text-slate-800 mb-2">Requirements:</h3>
+                        <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1 mb-6">
+                            <li>Figma/Wireframe design for Mobile & Web</li>
+                            <li>Address Usability, Accessibility, Consistency, Feedback</li>
+                            <li>5-slide PPT presentation explaining choices</li>
+                        </ul>
+                        <div id="assignment-status"
+                            class="p-3 bg-slate-100/60 text-slate-800 rounded-lg text-sm font-semibold border border-slate-300">
+                            Status: Not Submitted
+                        </div>
+                    </div>
+
+                    <div
+                        class="w-full md:w-2/3 bg-white/60 backdrop-blur-md border border-white/50 p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center justify-center">
+                        <div id="drop-zone"
+                            class="w-full h-64 border-4 border-dashed border-slate-300 rounded-xl flex flex-col items-center justify-center cursor-pointer hover:bg-transparent hover:border-emerald-500 transition mb-6 bg-transparent">
+                            <div class="text-4xl mb-3 text-emerald-600"><i class="fa-regular fa-folder-open"></i></div>
+                            <p class="text-lg font-semibold text-slate-700" id="drop-text">Click or drag file to upload
+                            </p>
+                            <p class="text-sm text-slate-500 mt-1">Accepts .fig, .pdf, .zip</p>
+                        </div>
+
+                        <button id="btn-submit-assignment" disabled
+                            class="w-full md:w-1/2 bg-slate-300 text-slate-500 font-bold py-3 px-4 rounded-lg cursor-not-allowed transition duration-300 text-lg">
+                            Submit Assignment
+                        </button>
+                        <p id="feedback-text"
+                            class="mt-3 text-sm font-semibold text-green-600 opacity-0 transition-opacity"><i
+                                class="fa-solid fa-circle-check mr-1"></i> Assignment
+                            successfully submitted!</p>
+                    </div>
+                </div>
+
+                <!-- Submitted Assignments Section -->
+                <div class="mt-8 bg-white/60 backdrop-blur-md border border-white/50 p-6 rounded-xl border border-slate-300 shadow-sm">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-4">Past Submissions</h2>
+                    <div class="space-y-4">
+                        <!-- Submission Item 1 -->
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-white/80 border border-slate-200 rounded-lg shadow-sm hover:shadow-md transition gap-4 sm:gap-0">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-500 shrink-0">
+                                    <i class="fa-solid fa-file-pdf text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-800">Week 3 - Heuristic Evaluation.pdf</h3>
+                                    <p class="text-xs text-slate-500 mt-0.5">Submitted on: March 10, 2026, 10:15 AM</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full border border-emerald-200 whitespace-nowrap">Grade: 95/100</span>
+                        </div>
+                        
+                        <!-- Submission Item 2 -->
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-white/80 border border-slate-200 rounded-lg shadow-sm hover:shadow-md transition gap-4 sm:gap-0">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-500 shrink-0">
+                                    <i class="fa-solid fa-file-zipper text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-800">Week 2 - Wireframes.zip</h3>
+                                    <p class="text-xs text-slate-500 mt-0.5">Submitted on: March 3, 2026, 04:30 PM</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full border border-emerald-200 whitespace-nowrap">Grade: 98/100</span>
+                        </div>
+                        
+                        <!-- Submission Item 3 -->
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-white/80 border border-slate-200 rounded-lg shadow-sm hover:shadow-md transition gap-4 sm:gap-0">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-violet-100 flex items-center justify-center text-violet-500 shrink-0">
+                                    <i class="fa-solid fa-file-word text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-800">Week 1 - Requirement Analysis.docx</h3>
+                                    <p class="text-xs text-slate-500 mt-0.5">Submitted on: Feb 24, 2026, 11:45 AM</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full border border-emerald-200 whitespace-nowrap">Grade: 92/100</span>
+                        </div>
+
+                        <!-- Submission Item 4 (Late Submission) -->
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-orange-50/50 border border-orange-200 rounded-lg shadow-sm hover:shadow-md transition gap-4 sm:gap-0">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 shrink-0">
+                                    <i class="fa-solid fa-file-powerpoint text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <h3 class="font-bold text-slate-800">Week 0 - Introduction to HCI.pptx</h3>
+                                        <span class="px-2 py-0.5 bg-orange-100 text-orange-700 text-[10px] font-bold rounded uppercase tracking-wider">Late</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 mt-0.5"><span class="text-red-500 font-medium">Due: Feb 10, 2026</span> &bull; Submitted on: Feb 12, 2026</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full border border-emerald-200 whitespace-nowrap">Grade: 80/100 (-10% Late)</span>
+                        </div>
+
+                        <!-- Submission Item 5 (Overdue / Missing) -->
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-red-50 border border-red-200 rounded-lg shadow-sm gap-4 sm:gap-0">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-500 shrink-0">
+                                    <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <h3 class="font-bold text-slate-800">Reading Reflection - Norman's Doors</h3>
+                                        <span class="px-2 py-0.5 bg-red-200 text-red-700 text-[10px] font-bold rounded uppercase tracking-wider">Missing</span>
+                                    </div>
+                                    <p class="text-xs text-red-600 mt-0.5 font-medium">Past Due: Jan 30, 2026</p>
+                                </div>
+                            </div>
+                            <button class="px-4 py-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-lg transition whitespace-nowrap">Submit Late</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <nav
+            class="md:hidden fixed bottom-0 w-full bg-white/60 backdrop-blur-md border border-white/50 border-t border-slate-200 flex justify-around py-2 px-1 pb-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-20">
+            <a href="dashboard.html"
+                class="nav-btn flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-house text-2xl mb-1"></i>
+                <span class="text-[10px] font-semibold">Home</span>
+            </a>
+            <a href="lessons.html" class="nav-btn flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-book-open text-2xl mb-1"></i>
+                <span class="text-[10px] font-semibold">Learn</span>
+            </a>
+            <a href="assignments.html"
+                class="nav-btn active flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-file-arrow-up text-2xl mb-1"></i>
+                <span class="text-[10px] font-semibold">Submit</span>
+            </a>
+            <a href="messages.html"
+                class="nav-btn flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-comments text-2xl mb-1"></i>
+                <span class="text-[10px] font-semibold">Chat</span>
+            </a>
+            <a href="profile.html" class="nav-btn flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-user text-2xl mb-1"></i>
+                <span class="text-[10px] font-semibold">Profile</span>
+            </a>
+            <a href="login.html" class="flex flex-col items-center justify-center flex-1 text-red-500 pb-2">
+                <i class="fa-solid fa-arrow-right-from-bracket text-2xl mb-1"></i>
+                <span class="text-[10px] font-semibold">Logout</span>
+            </a>
+        </nav>
+    </div>
+    <script src="functions.js"></script>
+</body>
+
+</html>

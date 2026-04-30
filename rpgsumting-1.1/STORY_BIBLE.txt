@@ -1,0 +1,717 @@
+RPGSumting Story Bible
+======================
+
+This file contains the current story content used by the game.
+Each story node lists the scene, body text, choices, stat effects, and next destination.
+
+Playable Jobs
+-------------
+Mage: Controls spells and ancient knowledge.
+Starting stats: HP 80, Mana 120, Courage 4, Cunning 7
+
+Knight: Survives danger with armor and courage.
+Starting stats: HP 130, Mana 40, Courage 9, Cunning 3
+
+Rogue: Moves quietly and wins through precision.
+Starting stats: HP 95, Mana 70, Courage 6, Cunning 8
+
+Thief: Uses tricks, speed, and risky opportunities.
+Starting stats: HP 90, Mana 60, Courage 5, Cunning 10
+
+Archer: Reads the battlefield and strikes from range.
+Starting stats: HP 100, Mana 55, Courage 7, Cunning 6
+
+Job Opening Scenarios
+---------------------
+Mage
+----
+[mage_start] Mage Prologue: The Black-Wax Summons
+Scene: ACADEMY
+Story: At Starfall Academy, Archmage Veyra interrupts your lesson with a royal summons sealed in black wax. The seal matches a forbidden chart of Emberdeep, the dungeon beneath Dragonspine Mountain. The chart warns that the Crown of Ash can wake Kaelthar, the oath-bound dragon below the realm.
+Choices:
+  1. Decode the dungeon chart before leaving
+     Result: You learn the crown cannot be destroyed by force; it must be judged by an oath.
+     Effects: -12 Mana, +3 Cunning, +2 Fate
+     Next: hidden_library
+  2. Answer the summons at once
+     Result: You arrive with spellbook ready and your name already written on the quest contract.
+     Effects: -4 Mana, +1 Courage, +1 Cunning, +1 Fate
+     Next: tavern_call
+  3. Trace the black wax with a warding spell
+     Result: The wax hisses the name of the Black-Wax Covenant before burning away.
+     Effects: -4 HP, -10 Mana, +1 Courage, +2 Cunning, +1 Fate
+     Next: road_watch
+
+
+Knight
+------
+[knight_start] Knight Prologue: Oath At Ashwake
+Scene: CASTLE
+Story: Castle Ashwake calls every sworn blade to the war room. Warden Elowen explains that the Black-Wax Covenant has opened old roads to Emberdeep and stolen the first key to the Crown of Ash. Your oath is no longer to a wall, but to every village the wall protects.
+Choices:
+  1. Swear to protect Greenhollow first
+     Result: The captain gives you a shield marked with the roadwarden's lantern.
+     Effects: +3 Courage, +2 Fate
+     Next: greenhollow_square
+  2. Demand a direct march on the dungeon
+     Result: The veterans respect your courage, though the scouts warn that courage does not disarm traps.
+     Effects: -3 HP, +3 Courage
+     Next: barrow_door
+  3. Question how the key was stolen
+     Result: The witness describes a courtier with black wax under his fingernails.
+     Effects: +1 Courage, +2 Cunning, +1 Fate
+     Next: village_clues
+
+
+Rogue
+-----
+[rogue_start] Rogue Prologue: Ledger Of The Covenant
+Scene: MARKET
+Story: In the lantern market, a contact slides you a stolen ledger. It lists bribes, cult safehouses, and a meeting at the Lantern & Lyre inn. The final page names Emberdeep as the dungeon where the realm's next ruler will be chosen.
+Choices:
+  1. Copy the safehouse list
+     Result: The list marks a smuggler route under Greenhollow.
+     Effects: -2 HP, +4 Cunning, +1 Fate
+     Next: market_underbelly
+  2. Attend the inn meeting in disguise
+     Result: No one at the table trusts easily, which means you are among professionals.
+     Effects: +3 Cunning, +1 Fate
+     Next: tavern_call
+  3. Follow the courier carrying the ledger seal
+     Result: The courier leads you toward a cult procession on the old road.
+     Effects: -4 HP, +4 Cunning
+     Next: cult_disguise
+
+
+Thief
+-----
+[thief_start] Thief Prologue: The Wrong Treasure
+Scene: MARKET
+Story: You break into a noble vault for coin and find a map instead. The map marks Emberdeep, the Lantern & Lyre, and three locks around the Crown of Ash. When the vault alarm rings, you realize the Black-Wax Covenant wanted you blamed for stealing it.
+Choices:
+  1. Keep the map and run for the inn
+     Result: The map folds itself around your wrist like a contract.
+     Effects: -3 HP, +4 Cunning, +1 Fate
+     Next: tavern_call
+  2. Sell a fake copy to the cult
+     Result: The fake buys you time and marks the cult's buyer for later.
+     Effects: +4 HP, +4 Cunning, -1 Fate
+     Next: market_underbelly
+  3. Break into the vault records
+     Result: The records prove the crown key was moved through Greenhollow.
+     Effects: -5 HP, +3 Cunning, +2 Fate
+     Next: village_clues
+
+
+Archer
+------
+[archer_start] Archer Prologue: Smoke On The Old Road
+Scene: FOREST
+Story: From the Greenhollow watchtower, you see smoke rising from the road to Dragonspine Mountain. Black-cloaked scouts drive villagers toward the forest while a horn sounds from Castle Ashwake. The trail points to Emberdeep.
+Choices:
+  1. Guide the villagers to safety
+     Result: The rescued villagers tell you the cult took miners for a ritual below the mountain.
+     Effects: -4 HP, +2 Courage, +2 Cunning, +2 Fate
+     Next: greenhollow_square
+  2. Track the black-cloaked scouts
+     Result: Their trail cuts toward a hidden barrow door in the mountain roots.
+     Effects: -5 HP, +3 Courage, +2 Cunning, +1 Fate
+     Next: barrow_door
+  3. Send a warning arrow to Ashwake
+     Result: The castle answers with a lantern signal: meet the party at the inn.
+     Effects: +2 Courage, +1 Cunning, +1 Fate
+     Next: tavern_call
+
+
+Shared Main Story Branches
+--------------------------
+[tavern_call] Chapter One: The Lantern & Lyre
+Scene: INN
+Story: The Lantern & Lyre is packed with refugees, scouts, shrine-keepers, and sellswords. Warden Elowen lays a quest contract on the table: enter Emberdeep, recover the stolen key, stop the Black-Wax Covenant, and decide what must be done with the Crown of Ash.
+Choices:
+  1. Accept the contract before witnesses
+     Result: The room steadies when someone finally says yes.
+     Effects: +2 Courage, +2 Fate
+     Next: greenhollow_square
+  2. Question the refugees for details
+     Result: Their stories form one clear pattern: the cult is collecting keys, miners, and old oaths.
+     Effects: +3 Cunning, +1 Fate
+     Next: village_clues
+  3. Study the dungeon map with the party
+     Result: The safest route begins on the attacked road and ends at a sealed barrow.
+     Effects: -3 Mana, +2 Cunning, +1 Fate
+     Next: road_watch
+
+[road_watch] Chapter One: Ambush On The Old Road
+Scene: ROAD
+Story: The party reaches a broken waystone as black-wax scouts surround a refugee cart. Their leader carries a bronze key that glows whenever someone speaks the dragon's name.
+Choices:
+  1. Hold the road and draw the scouts' attention
+     Result: The refugees escape while the scouts learn this party will not scatter.
+     Effects: -10 HP, +3 Courage, +2 Fate
+     Next: greenhollow_square
+  2. Cut the scouts off from the trees
+     Result: You recover a torn order naming the Greenhollow shrine as the next target.
+     Effects: -5 HP, +2 Courage, +2 Cunning, +1 Fate
+     Next: old_shrine
+  3. Let one scout flee and follow quietly
+     Result: The trail leads through a smuggler tunnel beneath the market.
+     Effects: -3 HP, +4 Cunning
+     Next: market_underbelly
+
+[greenhollow_square] Chapter One: Greenhollow Needs Heroes
+Scene: VILLAGE
+Story: Greenhollow's square has become a field hospital and quest board at once. The shrine bell is cracked, the mine road is empty, and every family knows someone taken toward Emberdeep.
+Choices:
+  1. Organize the village watch
+     Result: Farmers, bakers, and guards form a rough militia around the square.
+     Effects: +3 Courage, +1 Cunning, +2 Fate
+     Next: old_shrine
+  2. Search for tracks near the mine road
+     Result: Bootprints, drag marks, and candle wax point to the barrow door.
+     Effects: -2 HP, +1 Courage, +3 Cunning, +1 Fate
+     Next: barrow_door
+  3. Ask who profited from the attack
+     Result: A nervous merchant admits the cult bought maps through the black market.
+     Effects: +4 Cunning
+     Next: market_underbelly
+
+[village_clues] Chapter One: Clues Around The Hearth
+Scene: VILLAGE
+Story: The clues fit together like pieces on a campaign map: a stolen bronze key, miners taken alive, an old shrine oath, and a dungeon door that opens only for a party carrying both courage and guilt.
+Choices:
+  1. Bring the clues to the old shrine
+     Result: The shrine-keeper recognizes the oath mark carved into the key.
+     Effects: +1 Courage, +2 Cunning, +2 Fate
+     Next: old_shrine
+  2. Pressure the merchant who bought cult maps
+     Result: He gives up the safehouse rather than face the village.
+     Effects: +4 Cunning
+     Next: market_underbelly
+  3. Take the forest path before the cult moves
+     Result: The woods are dangerous, but the cult does not expect a fast route.
+     Effects: -4 HP, +2 Courage, +2 Cunning, +1 Fate
+     Next: forest_trail
+
+[forest_trail] Chapter Two: The Thornroad
+Scene: FOREST
+Story: The Thornroad winds through trees carved with old adventurers' names. The forest is not evil, but it remembers every party that entered Emberdeep and failed to return.
+Choices:
+  1. Leave offerings at the carved trees
+     Result: The forest opens a quiet path to the shrine ruins.
+     Effects: -4 Mana, +2 Cunning, +3 Fate
+     Next: old_shrine
+  2. Move quickly before the trail changes
+     Result: Speed gets you to the mountain, but thorns mark the cost.
+     Effects: -8 HP, +2 Courage, +1 Cunning
+     Next: barrow_door
+  3. Read the names for a pattern
+     Result: The missing names match the first oathkeepers of the dragon seal.
+     Effects: -4 Mana, +3 Cunning, +2 Fate
+     Next: hidden_library
+
+[market_underbelly] Chapter Two: Deals Below The Market
+Scene: MARKET
+Story: Under Greenhollow's market, thieves, smugglers, and frightened informants trade in candles and secrets. The Black-Wax Covenant bought pickaxes, silence, and a false cleric's robe.
+Choices:
+  1. Buy the smuggler route to Emberdeep
+     Result: The route reaches the dungeon, but every shortcut has a blade behind it.
+     Effects: -2 HP, +4 Cunning
+     Next: sewer_gate
+  2. Expose the cult buyer to the crowd
+     Result: The market turns against the covenant for the first time.
+     Effects: -3 HP, +2 Courage, +2 Cunning, +2 Fate
+     Next: greenhollow_square
+  3. Wear the false robe into the cult line
+     Result: The disguise works because everyone in a cult fears asking questions.
+     Effects: +5 Cunning, -1 Fate
+     Next: cult_disguise
+
+[old_shrine] Chapter Two: Shrine Of The First Oath
+Scene: TEMPLE
+Story: The ruined shrine holds a stone relief of Kaelthar the dragon bowing to three mortal oathkeepers. Sister Maela explains the old bargain: the crown may command the dragon, but only an oath can keep command from becoming tyranny.
+Choices:
+  1. Restore the shrine's broken ward
+     Result: Warm light fills the room, and the bronze key stops screaming.
+     Effects: -12 Mana, +1 Courage, +1 Cunning, +4 Fate
+     Next: oath_trial
+  2. Ask Maela for the shortest path below
+     Result: She shows you a pilgrim mark hidden on the barrow map.
+     Effects: +1 Courage, +2 Cunning, +2 Fate
+     Next: barrow_door
+  3. Search the shrine library
+     Result: You find a brittle bestiary and a warning about the crown chamber.
+     Effects: -5 Mana, +3 Cunning, +2 Fate
+     Next: hidden_library
+
+[hidden_library] Chapter Two: Records Of Lost Parties
+Scene: ACADEMY
+Story: A hidden library beneath the shrine keeps the journals of failed expeditions. Their maps disagree on traps, monsters, and treasures, but every journal ends with the same line: the crown listens for the weakest promise.
+Choices:
+  1. Memorize the trap notes
+     Result: You learn where the floor lies and where the ceiling listens.
+     Effects: -6 Mana, +4 Cunning, +2 Fate
+     Next: trapped_gallery
+  2. Study the oathkeeper journals
+     Result: The journals prepare you for a trial that tests the party's reasons for fighting.
+     Effects: -8 Mana, +1 Courage, +3 Cunning, +3 Fate
+     Next: oath_trial
+  3. Take the crown-chamber map
+     Result: The map is incomplete, but it knows the dragon gate.
+     Effects: -4 Mana, +3 Cunning, +1 Fate
+     Next: dungeon_threshold
+
+[sewer_gate] Chapter Two: The Smuggler Gate
+Scene: SWAMP
+Story: The tunnel under the market slopes into older stone. Fresh black wax marks the walls, and stolen mining tools are stacked beside a gate built for people who never wanted to be seen.
+Choices:
+  1. Disarm the gate mechanism
+     Result: The gate opens without warning the cult patrols.
+     Effects: -3 HP, +4 Cunning, +1 Fate
+     Next: dungeon_threshold
+  2. Ambush the patrol at the turn
+     Result: The patrol falls, but one horn blast echoes deeper below.
+     Effects: -8 HP, +3 Courage, +1 Cunning
+     Next: trapped_gallery
+  3. Mark the tunnel for villagers to escape
+     Result: You turn a smugglers' route into a rescue path.
+     Effects: +2 Courage, +2 Cunning, +3 Fate
+     Next: dungeon_ally
+
+[cult_disguise] Chapter Two: Among The Black Wax
+Scene: ROAD
+Story: You walk beside masked cultists carrying candles, chains, and stolen village tools. They chant that the Crown of Ash will choose a ruler strong enough to silence the realm.
+Choices:
+  1. Keep the disguise until the dungeon door
+     Result: You learn the passphrase and the cult's marching order.
+     Effects: +5 Cunning, -1 Fate
+     Next: dungeon_threshold
+  2. Free two prisoners from the line
+     Result: The prisoners reveal where the miners are held.
+     Effects: -5 HP, +2 Courage, +3 Cunning, +2 Fate
+     Next: dungeon_ally
+  3. Steal the ritual candle from the priest
+     Result: Without the candle, the ritual will be weaker when the final fight begins.
+     Effects: -4 HP, +5 Cunning, +1 Fate
+     Next: cult_watch
+
+[oath_trial] Chapter Three: Trial Of The First Door
+Scene: RUINS
+Story: The first door to Emberdeep asks each party member why they came. The stone does not care about titles. It listens for fear, greed, duty, mercy, and the promises people make when no bard is taking notes.
+Choices:
+  1. Answer with duty to the helpless
+     Result: The door opens on a clean path and leaves a lantern mark on your hand.
+     Effects: -5 Mana, +3 Courage, +4 Fate
+     Next: dungeon_threshold
+  2. Answer with hunger for the truth
+     Result: The door opens sideways into a chamber of mirrors.
+     Effects: -8 Mana, +4 Cunning, +2 Fate
+     Next: mirror_sarcophagus
+  3. Lie and claim you want nothing
+     Result: The door opens, but the crown hears the lie and remembers your voice.
+     Effects: -6 HP, -4 Mana, +3 Cunning, -3 Fate
+     Next: trapped_gallery
+
+[barrow_door] Chapter Three: The Barrow Door
+Scene: MOUNTAIN
+Story: Dragonspine Mountain rises above a half-buried door carved with dice, lanterns, and dragonfire. The bronze key fits the lock, but the lock turns only when the party chooses a marching order.
+Choices:
+  1. Put the shield and scout in front
+     Result: Careful formation gets everyone inside alive.
+     Effects: -2 HP, +2 Courage, +2 Cunning, +2 Fate
+     Next: dungeon_threshold
+  2. Force the lock before the cult arrives
+     Result: The door opens with a crack like thunder.
+     Effects: -10 HP, +3 Courage, -1 Fate
+     Next: trapped_gallery
+  3. Search the carvings before using the key
+     Result: The carvings reveal a hidden route to the oath trial.
+     Effects: -4 Mana, +3 Cunning, +2 Fate
+     Next: oath_trial
+
+[dungeon_threshold] Chapter Three: Descent Into Emberdeep
+Scene: CAVE
+Story: Emberdeep smells of wet stone, old smoke, and treasure nobody should touch. Somewhere below, prisoners hammer at the crown chamber while the dragon's chained breath warms the walls.
+Choices:
+  1. Advance by torchlight and map every turn
+     Result: The party avoids the first pit trap and marks a safe return path.
+     Effects: -3 Mana, +3 Cunning, +2 Fate
+     Next: trapped_gallery
+  2. Follow the sound of prisoners working
+     Result: The hammering leads toward a guarded mine shaft.
+     Effects: -4 HP, +2 Courage, +2 Cunning, +2 Fate
+     Next: dungeon_ally
+  3. Follow the heat in the stone
+     Result: The warmth leads toward the dragon gate.
+     Effects: -5 HP, -5 Mana, +2 Courage, +1 Cunning, +1 Fate
+     Next: dragon_gate
+
+[trapped_gallery] Chapter Three: The Trapped Gallery
+Scene: RUINS
+Story: A gallery of old heroes stretches ahead, each statue holding a different weapon. The floor tiles show battles that change whenever someone looks away.
+Choices:
+  1. Solve the tile pattern
+     Result: The statues lower their weapons and reveal a safe stair.
+     Effects: -5 Mana, +4 Cunning, +2 Fate
+     Next: mirror_sarcophagus
+  2. Cross fast before the room resets
+     Result: You beat the trap by a breath and leave blood on the stone.
+     Effects: -12 HP, +3 Courage, +1 Cunning
+     Next: dragon_gate
+  3. Use a statue's shield to block the darts
+     Result: The shield bears Ashwake's oldest crest.
+     Effects: -6 HP, +2 Courage, +2 Cunning, +1 Fate
+     Next: dungeon_ally
+
+[mirror_sarcophagus] Chapter Three: The Mirror Sarcophagus
+Scene: GRAVEYARD
+Story: A silver sarcophagus reflects each party member as a ruler, a traitor, a martyr, and a stranger. The oathkeeper inside asks which reflection deserves to reach the crown.
+Choices:
+  1. Choose the reflection that protects others
+     Result: The oathkeeper gives you a blessing against the crown's command.
+     Effects: -8 Mana, +2 Courage, +1 Cunning, +4 Fate
+     Next: dragon_gate
+  2. Choose the reflection no one sees coming
+     Result: The oathkeeper gives you a secret route into the ritual balcony.
+     Effects: -4 Mana, +5 Cunning
+     Next: cult_watch
+  3. Break the mirror and reject the test
+     Result: The oathkeeper lets you pass, but the dungeon grows colder.
+     Effects: -8 HP, -5 Mana, +2 Courage, +2 Cunning, -2 Fate
+     Next: crown_chamber
+
+[dungeon_ally] Chapter Four: Prisoners In The Mine
+Scene: CAVE
+Story: The captured miners and villagers are chained beside a half-open vault. They have heard the cult leader promise that anyone who survives the ritual will kneel to the crown by dawn.
+Choices:
+  1. Break the chains and arm the prisoners
+     Result: The rescued villagers become the loudest part of your army.
+     Effects: -6 HP, +3 Courage, +2 Cunning, +4 Fate
+     Next: cult_watch
+  2. Lead the prisoners out through the marked tunnel
+     Result: Saving them now may leave fewer allies for the final battle, but more families survive.
+     Effects: -3 HP, +1 Courage, +3 Cunning, +3 Fate
+     Next: finale_peace_crossing
+  3. Ask what they heard near the vault
+     Result: They repeat the exact phrase needed to open the dragon gate.
+     Effects: +4 Cunning, +2 Fate
+     Next: dragon_gate
+
+[cult_watch] Chapter Four: Above The Ritual
+Scene: TOWER
+Story: From a broken balcony, you see the Black-Wax Covenant gathered around the crown chamber. Their leader, Lord Vael, wears a courtier's ring and carries the stolen key like a holy symbol.
+Choices:
+  1. Strike before Vael finishes the chant
+     Result: The ritual breaks into a hard, honest fight.
+     Effects: -8 HP, -6 Mana, +3 Courage, +1 Cunning, +2 Fate
+     Next: cult_ritual
+  2. Listen for the missing part of the oath
+     Result: Vael cannot command the dragon unless someone willingly gives the crown a name.
+     Effects: -6 Mana, +4 Cunning, +3 Fate
+     Next: dragon_pact
+  3. Steal the key from above
+     Result: The key vanishes from Vael's hand, and every cultist looks up.
+     Effects: -5 HP, +5 Cunning, +1 Fate
+     Next: crown_chamber
+
+[dragon_gate] Chapter Four: Gate Of Kaelthar
+Scene: CAVE
+Story: The dragon gate is not locked. It is waiting. Behind it, Kaelthar opens one ember-bright eye and asks whether the party came to free the realm, rule it, or survive it.
+Choices:
+  1. Speak honestly with the dragon
+     Result: Kaelthar respects honesty more than bravery and offers one warning about the crown.
+     Effects: -8 Mana, +2 Courage, +1 Cunning, +4 Fate
+     Next: dragon_pact
+  2. Rush past the gate toward the ritual
+     Result: The dragon lets you pass, amused by mortal urgency.
+     Effects: -6 HP, +3 Courage, +1 Cunning
+     Next: cult_ritual
+  3. Search the gate for the crown's weakness
+     Result: The runes reveal the crown must be answered, not merely taken.
+     Effects: -5 Mana, +4 Cunning, +2 Fate
+     Next: crown_chamber
+
+[dragon_pact] Chapter Four: The Dragon's Bargain
+Scene: CAVE
+Story: Kaelthar was bound centuries ago to stop a tyrant from burning the realm. The dragon offers a bargain: carry the old oath into the crown chamber, but decide afterward whether the dragon remains chained.
+Choices:
+  1. Promise to judge the crown before using it
+     Result: The dragon breathes a coal-bright sigil onto your weapon, spellbook, or bow.
+     Effects: -10 Mana, +2 Courage, +1 Cunning, +4 Fate
+     Next: crown_chamber
+  2. Promise to free Kaelthar after Vael falls
+     Result: The chains groan, and the dungeon trembles with dangerous hope.
+     Effects: -4 HP, -6 Mana, +3 Courage, +2 Cunning, +2 Fate
+     Next: cult_ritual
+  3. Offer yourself as the new keeper of the oath
+     Result: The dragon goes silent because some promises are heavier than victory.
+     Effects: -8 HP, -12 Mana, +3 Courage, +1 Cunning, +5 Fate
+     Next: ending_bound
+
+[crown_chamber] Chapter Five: The Crown Of Ash
+Scene: TEMPLE
+Story: The Crown of Ash floats above a stone table carved like a battle map. It promises order, victory, revenge, and peace if someone strong enough will only put it on.
+Choices:
+  1. Carry the crown into the open and face Vael
+     Result: The crown burns your hands but cannot hide from witnesses.
+     Effects: -10 HP, -8 Mana, +3 Courage, +1 Cunning, +3 Fate
+     Next: cult_ritual
+  2. Put the crown on before Vael can take it
+     Result: Every voice in the chamber goes quiet because the crown has found a ruler.
+     Effects: +12 HP, -15 Mana, +2 Courage, +2 Cunning, -5 Fate
+     Next: ending_tyrant
+  3. Break the battle map under the crown
+     Result: The crown loses its script for the future, and all plans become mortal again.
+     Effects: -8 HP, -12 Mana, +2 Courage, +4 Cunning, +3 Fate
+     Next: ending_free
+
+[cult_ritual] Chapter Five: Battle Below Dragonspine
+Scene: BATTLEFIELD
+Story: Lord Vael raises the stolen key, the crown answers, and the dungeon becomes a battlefield. Villagers, scouts, oathkeepers, and cultists clash while Kaelthar's chained fire turns every shadow red.
+Choices:
+  1. Defeat Vael in front of both armies
+     Result: The covenant breaks when everyone sees its chosen ruler fall.
+     Effects: -14 HP, -8 Mana, +4 Courage, +1 Cunning, +3 Fate
+     Next: ending_champion
+  2. Give the freed prisoners the final word
+     Result: The people Vael tried to use decide the crown's fate together.
+     Effects: -8 HP, -8 Mana, +2 Courage, +4 Cunning, +5 Fate
+     Next: ending_liberator
+  3. Vanish with the key and crown records
+     Result: No throne gets the whole truth, and no cult gets the whole map.
+     Effects: -5 HP, -6 Mana, +5 Cunning, -1 Fate
+     Next: ending_shadow
+
+Campaign Side Scenarios
+-----------------------
+No interrupting side scenarios are used. The campaign now follows the connected Emberdeep quest line.
+
+Final Act Chapters
+------------------
+[finale_warden_roads] Final Act: Lanterns On The Roads
+Scene: ROAD
+Story: With Vael defeated and the crown contained, the roads around Greenhollow still need a guardian. The party can seal Emberdeep, open it under watch, or teach the realm to guard itself.
+Choices:
+  1. Swear the roadwarden oath
+     Result: Lanterns burn along every road that once led only to fear.
+     Effects: -4 HP, -6 Mana, +3 Courage, +2 Cunning, +4 Fate
+     Next: ending_warden
+  2. Train every village to hold its own gate
+     Result: Protection becomes a shared duty instead of a lonely title.
+     Effects: -3 HP, -4 Mana, +2 Courage, +3 Cunning, +4 Fate
+     Next: ending_liberator
+  3. Close Emberdeep and walk away
+     Result: The dungeon sleeps, and so does the part of you that needed applause.
+     Effects: +6 HP, +2 Cunning, +2 Fate
+     Next: ending_peace
+
+[finale_tyrant_throne] Final Act: The Crown Answers
+Scene: CASTLE
+Story: The crown fits as if it expected you. Armies wait outside Emberdeep for a ruler strong enough to make the realm safe, even if safety has to be enforced.
+Choices:
+  1. Rule Ashwake by iron oath
+     Result: The realm becomes orderly, watchful, and afraid to disappoint you.
+     Effects: +14 HP, -6 Mana, +3 Courage, +1 Cunning, -5 Fate
+     Next: ending_tyrant
+  2. Rule from the shadows instead
+     Result: You let another wear the symbol while you keep the decisions.
+     Effects: +8 HP, -4 Mana, +5 Cunning, -3 Fate
+     Next: ending_shadow
+  3. Take the crown off before it names you
+     Result: Power releases your hands reluctantly.
+     Effects: -4 HP, -8 Mana, +2 Courage, +3 Cunning, +3 Fate
+     Next: ending_free
+
+[finale_shadow_network] Final Act: Secrets After Midnight
+Scene: MARKET
+Story: The covenant is broken, but its tunnels, ledgers, and informants remain. Whoever controls them can prevent the next Vael or become something quieter and worse.
+Choices:
+  1. Turn the network into a hidden shield
+     Result: Dangerous people learn they are being watched by someone better at vanishing.
+     Effects: +6 HP, -4 Mana, +5 Cunning, +1 Fate
+     Next: ending_shadow
+  2. Give the ledgers to the village councils
+     Result: Secrets become evidence, and fear becomes testimony.
+     Effects: -3 HP, -4 Mana, +1 Courage, +4 Cunning, +4 Fate
+     Next: ending_liberator
+  3. Burn every ledger and disappear
+     Result: No one owns the old lies anymore, including you.
+     Effects: -4 Mana, +1 Courage, +4 Cunning, +3 Fate
+     Next: ending_free
+
+[finale_free_unwritten_map] Final Act: The Unwritten Map
+Scene: MOUNTAIN
+Story: The battle map beneath the crown is broken. For the first time, the realm has no prophecy telling it where to go next, and no crown deciding who deserves to lead.
+Choices:
+  1. Leave before anyone writes you into law
+     Result: The road ahead is dangerous because it is yours.
+     Effects: -4 Mana, +2 Courage, +3 Cunning, +4 Fate
+     Next: ending_free
+  2. Stay long enough to help write fair laws
+     Result: Freedom starts with arguments that no one is allowed to silence.
+     Effects: -4 HP, -4 Mana, +1 Courage, +4 Cunning, +5 Fate
+     Next: ending_liberator
+  3. Choose a quiet life beyond the map
+     Result: You trade prophecy for a door, a hearth, and mornings no bard can edit.
+     Effects: +8 HP, +2 Cunning, +2 Fate
+     Next: ending_peace
+
+[finale_liberator_square] Final Act: The First Council
+Scene: VILLAGE
+Story: In Greenhollow's square, villagers, guards, mages, scouts, and former thieves argue over the crown's prison. It is loud, imperfect, and alive.
+Choices:
+  1. Let every district choose a speaker
+     Result: The first vote is messy enough to be real.
+     Effects: -3 HP, -3 Mana, +2 Courage, +4 Cunning, +5 Fate
+     Next: ending_liberator
+  2. Keep emergency command for yourself
+     Result: Everyone is tired enough to accept a strong hand.
+     Effects: +10 HP, -4 Mana, +2 Courage, +2 Cunning, -4 Fate
+     Next: ending_tyrant
+  3. Refuse office and keep adventuring
+     Result: Some heroes serve best by not becoming rulers.
+     Effects: +2 HP, +1 Courage, +3 Cunning, +3 Fate
+     Next: ending_free
+
+[finale_bound_old_road] Final Act: Keeper Of The Oath
+Scene: TEMPLE
+Story: The dragon chains accept your name. Emberdeep will hold because you hold it, but the road above continues without waiting for you.
+Choices:
+  1. Bind yourself fully to the seal
+     Result: The dungeon sleeps under your heartbeat.
+     Effects: +6 HP, -10 Mana, +3 Courage, +5 Fate
+     Next: ending_bound
+  2. Share the oath with trusted wardens
+     Result: The burden becomes heavy, but no longer lonely.
+     Effects: -8 Mana, +2 Courage, +2 Cunning, +4 Fate
+     Next: ending_warden
+  3. Ask Kaelthar to release you from glory
+     Result: The dragon grants one small mercy: an ordinary dawn.
+     Effects: +8 HP, +2 Cunning, +2 Fate
+     Next: ending_peace
+
+[finale_champion_wall] Final Act: Siege At Ashwake
+Scene: BATTLEFIELD
+Story: Vael falls, but the last cult force attacks Castle Ashwake before sunrise. The party reaches the wall as villagers and soldiers look for someone to make the first brave choice.
+Choices:
+  1. Stand on the wall with the banner
+     Result: Courage spreads faster than fear.
+     Effects: -10 HP, -4 Mana, +4 Courage, +1 Cunning, +3 Fate
+     Next: ending_champion
+  2. Lead a flanking strike through the old road
+     Result: The siege breaks when the enemy realizes the dungeon did not break you.
+     Effects: -8 HP, -4 Mana, +3 Courage, +3 Cunning, +3 Fate
+     Next: ending_warden
+  3. Save the wounded instead of chasing glory
+     Result: Songs miss the point, but families remember.
+     Effects: +6 HP, +1 Courage, +2 Cunning, +3 Fate
+     Next: ending_peace
+
+[finale_peace_crossing] Final Act: The Road Home
+Scene: ROAD
+Story: The rescued prisoners reach Greenhollow as dawn turns the mountains gold. The crown is still a problem, but the living are hungry, hurt, and right in front of you.
+Choices:
+  1. Stay and rebuild Greenhollow
+     Result: Peace begins as work no bard can rhyme.
+     Effects: +12 HP, +2 Cunning, +3 Fate
+     Next: ending_peace
+  2. Teach the village to defend the roads
+     Result: The next party will find allies waiting.
+     Effects: +4 HP, +2 Courage, +3 Cunning, +3 Fate
+     Next: ending_warden
+  3. Carry the warning to other realms
+     Result: One dungeon is closed. The world is larger than one map.
+     Effects: -3 Mana, +2 Courage, +3 Cunning, +3 Fate
+     Next: ending_free
+
+[finale_fallen_last_breath] Final Act: One Last Save
+Scene: GRAVEYARD
+Story: Darkness closes in under Emberdeep. A healer's voice, a dragon's breath, and the scrape of your party dragging you over stone all arrive at once.
+Choices:
+  1. Force yourself back to your feet
+     Result: Pain answers first, but your party answers louder.
+     Effects: +24 HP, -8 Mana, +3 Courage, +2 Fate
+     Next: ending_champion
+  2. Tell the others to finish the quest
+     Result: They carry your warning into the final fight.
+     Effects: -200 HP, -3 Fate
+     Next: fallen
+  3. Accept rescue and leave the dungeon alive
+     Result: Not every survival becomes a song. Some become a second chance.
+     Effects: +18 HP, +1 Cunning, +2 Fate
+     Next: ending_peace
+
+Endings
+-------
+Ending group: ending_warden
+---------------------------
+[ending_warden] Roadwarden Of Emberdeep
+Scene: ENDING
+Story: You become guardian of the roads, shrine keys, and dungeon doors around Dragonspine Mountain. Adventuring parties still come seeking treasure, but now they find warnings, maps, and a lantern burning before the dark.
+Ending node.
+
+
+Ending group: ending_tyrant
+---------------------------
+[ending_tyrant] Bearer Of The Crown
+Scene: ENDING
+Story: You claim the Crown of Ash and force the realm into order. Bandits vanish, cults burn, and villages survive, but every peaceful street knows exactly whom it must fear.
+Ending node.
+
+
+Ending group: ending_shadow
+---------------------------
+[ending_shadow] Master Of The Hidden Ledger
+Scene: ENDING
+Story: You never sit on a throne. Instead, you inherit the covenant's tunnels, spies, and debts, turning them into a hidden hand that moves before tyrants can rise.
+Ending node.
+
+
+Ending group: ending_free
+-------------------------
+[ending_free] The Unwritten Road
+Scene: ENDING
+Story: You reject the crown, the prophecy, and every easy title. The party's map ends at the mountain pass, but your road continues into blank parchment and honest danger.
+Ending node.
+
+
+Ending group: ending_liberator
+------------------------------
+[ending_liberator] Breaker Of The Crown
+Scene: ENDING
+Story: You put the crown's fate into the hands of the people it was meant to rule. The realm becomes louder, slower, and far harder to command, which is exactly why it is free.
+Ending node.
+
+
+Ending group: ending_bound
+--------------------------
+[ending_bound] Keeper Below The Mountain
+Scene: ENDING
+Story: You bind your name to Emberdeep so the crown and dragon cannot be misused. Above you, seasons turn and roads reopen. Below, your oath holds the dark in place.
+Ending node.
+
+
+Ending group: ending_champion
+-----------------------------
+[ending_champion] Champion Of Ashwake
+Scene: ENDING
+Story: You defeat Vael, break the siege, and become the hero Ashwake needed. The songs are simpler than the truth, but the people they comfort are real.
+Ending node.
+
+
+Ending group: ending_peace
+--------------------------
+[ending_peace] Hearth After The Quest
+Scene: ENDING
+Story: You step away from crowns and commands to help ordinary people rebuild. Some call it a small ending. Anyone who has survived a dungeon knows better.
+Ending node.
+
+
+Ending group: fallen
+--------------------
+[fallen] Fallen In Emberdeep
+Scene: ENDING
+Story: Your journey ends beneath Dragonspine Mountain. The party carries your warning forward, and the next lantern lit at the dungeon door bears your name.
+Ending node.
+
+

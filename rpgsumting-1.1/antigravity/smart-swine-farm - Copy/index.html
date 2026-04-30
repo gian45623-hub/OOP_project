@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Swine Farm Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="brand">SwineTrack</div>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav class="site-nav" id="site-nav">
+            <a href="#overview">Overview</a>
+            <a href="#web">Web Pages</a>
+            <a href="#mobile">Mobile View</a>
+            <a href="#records">Records</a>
+            <a href="#reports">Reports</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="kicker">Smart Swine Farm Management</p>
+                <h1>Simple monitoring for pig growth, feeding, and health records.</h1>
+                <p class="hero-text">
+                    A clean web and mobile system for farm staff to check herd status, review feeding schedules,
+                    monitor weight progress, and respond to health concerns without a complicated interface.
+                </p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#overview">See Dashboard</a>
+                    <a class="button button-secondary" href="#mobile">View Mobile Layout</a>
+                </div>
+            </div>
+
+            <div class="hero-panel">
+                <h2>Today's farm status</h2>
+                <div class="status-list">
+                    <div class="status-row">
+                        <span>Total pigs</span>
+                        <strong>1,245</strong>
+                    </div>
+                    <div class="status-row">
+                        <span>Feeds completed</span>
+                        <strong>2 of 3</strong>
+                    </div>
+                    <div class="status-row">
+                        <span>Weight checks</span>
+                        <strong>91%</strong>
+                    </div>
+                    <div class="status-row">
+                        <span>Health alerts</span>
+                        <strong>3 active</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="metrics" id="overview">
+            <article class="metric-card">
+                <p>Total Herd</p>
+                <h2>1,245</h2>
+                <span>All pens tracked in one place</span>
+            </article>
+            <article class="metric-card">
+                <p>Average Weight</p>
+                <h2>85.6 kg</h2>
+                <span>Updated from weekly records</span>
+            </article>
+            <article class="metric-card">
+                <p>Feed Schedule</p>
+                <h2>96%</h2>
+                <span>Daily completion rate</span>
+            </article>
+            <article class="metric-card">
+                <p>Health Cases</p>
+                <h2>3</h2>
+                <span>Needs follow-up today</span>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel" id="web">
+                <div class="section-heading">
+                    <p class="kicker">Web Interface</p>
+                    <h2>Pages for managers and office monitoring</h2>
+                </div>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h3>Farm Overview</h3>
+                        <p>View total herd count, current farm status, and daily tasks in one dashboard.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Pig Data Table</h3>
+                        <p>Check pig ID, pen location, age, weight, and health status from organized records.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Feeding Logs</h3>
+                        <p>Track completed feedings, pending schedules, and feed quantities per batch.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Health Monitoring</h3>
+                        <p>Review alerts, treatment notes, and pigs that need special attention.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Reports and Analytics</h3>
+                        <p>Summarize herd growth and feeding performance for weekly farm review.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="panel" id="mobile">
+                <div class="section-heading">
+                    <p class="kicker">Mobile Interface</p>
+                    <h2>Simple phone view for staff in the field</h2>
+                </div>
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <p class="phone-title">Farm Dashboard</p>
+                        <div class="phone-block">
+                            <strong>Pig Monitoring</strong>
+                            <span>Scan weight and check pen data</span>
+                        </div>
+                        <div class="phone-block">
+                            <strong>Feeding Schedule</strong>
+                            <span>Mark morning, afternoon, and evening feeds</span>
+                        </div>
+                        <div class="phone-block">
+                            <strong>Weight Monitoring</strong>
+                            <span>Camera-based capture for faster updates</span>
+                        </div>
+                        <div class="phone-block">
+                            <strong>Health Alerts</strong>
+                            <span>Open urgent cases right away</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel">
+                <div class="section-heading">
+                    <p class="kicker">Feeding Schedule</p>
+                    <h2>Daily feed plan</h2>
+                </div>
+                <div class="schedule-list">
+                    <div class="schedule-item">
+                        <div>
+                            <strong>06:00 AM</strong>
+                            <span>Morning feed</span>
+                        </div>
+                        <em>Completed</em>
+                    </div>
+                    <div class="schedule-item">
+                        <div>
+                            <strong>02:00 PM</strong>
+                            <span>Afternoon feed</span>
+                        </div>
+                        <em>Pending</em>
+                    </div>
+                    <div class="schedule-item">
+                        <div>
+                            <strong>08:00 PM</strong>
+                            <span>Evening feed</span>
+                        </div>
+                        <em>Scheduled</em>
+                    </div>
+                </div>
+            </article>
+
+            <article class="panel">
+                <div class="section-heading">
+                    <p class="kicker">Health Monitoring</p>
+                    <h2>Current attention needed</h2>
+                </div>
+                <div class="alert-box">
+                    <strong>PIG-0402</strong>
+                    <p>Temperature reading is above normal and needs follow-up observation.</p>
+                </div>
+                <ul class="note-list">
+                    <li>Pen B low feed intake recorded this morning.</li>
+                    <li>Routine vaccination completed for Pen A.</li>
+                    <li>One pig in Pen C is flagged for recheck.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="panel" id="records">
+            <div class="section-heading">
+                <p class="kicker">Pig Records</p>
+                <h2>Sample monitoring table</h2>
+            </div>
+            <div class="table-wrap">
+                <table class="record-table">
+                    <thead>
+                        <tr>
+                            <th>Pig ID</th>
+                            <th>Pen</th>
+                            <th>Age</th>
+                            <th>Weight</th>
+                            <th>Status</th>
+                            <th>Last Checked</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Pig ID">PIG-1042</td>
+                            <td data-label="Pen">Pen A</td>
+                            <td data-label="Age">12 weeks</td>
+                            <td data-label="Weight">45.2 kg</td>
+                            <td data-label="Status">Healthy</td>
+                            <td data-label="Last Checked">Today, 08:30 AM</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Pig ID">PIG-1043</td>
+                            <td data-label="Pen">Pen A</td>
+                            <td data-label="Age">12 weeks</td>
+                            <td data-label="Weight">46.1 kg</td>
+                            <td data-label="Status">Healthy</td>
+                            <td data-label="Last Checked">Today, 08:32 AM</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Pig ID">PIG-0402</td>
+                            <td data-label="Pen">Pen C</td>
+                            <td data-label="Age">4 weeks</td>
+                            <td data-label="Weight">12.4 kg</td>
+                            <td data-label="Status">Needs check</td>
+                            <td data-label="Last Checked">Today, 09:15 AM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel" id="reports">
+            <div class="section-heading">
+                <p class="kicker">Reports and Analytics</p>
+                <h2>Weekly progress summary</h2>
+            </div>
+            <div class="report-grid">
+                <article class="report-card">
+                    <h3>Growth Progress</h3>
+                    <div class="bar-row">
+                        <span>Week 1</span>
+                        <div class="bar"><span style="width: 35%;"></span></div>
+                    </div>
+                    <div class="bar-row">
+                        <span>Week 4</span>
+                        <div class="bar"><span style="width: 68%;"></span></div>
+                    </div>
+                    <div class="bar-row">
+                        <span>Week 7</span>
+                        <div class="bar"><span style="width: 90%;"></span></div>
+                    </div>
+                </article>
+                <article class="report-card">
+                    <h3>Farm Summary</h3>
+                    <ul class="note-list compact">
+                        <li>Average growth remains above target.</li>
+                        <li>Feeding schedule is mostly on time.</li>
+                        <li>Health checks should focus on Pen C this week.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

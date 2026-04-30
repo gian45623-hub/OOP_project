@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Marketplace</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Top Navigation -->
+    <nav class="navbar glass-effect" aria-label="Main Navigation">
+        <div class="nav-container">
+            <!-- Brand -->
+            <a href="#" class="brand" aria-label="Aura Home">
+                <i class="fa-solid fa-layer-group"></i> Aura
+            </a>
+
+            <!-- Search Bar (Desktop) -->
+            <div class="search-container desktop-only">
+                <i class="fa-solid fa-search search-icon"></i>
+                <input type="text" id="searchInput" aria-label="Search products" placeholder="Search for headphones, speakers...">
+            </div>
+
+            <!-- User Actions -->
+            <div class="nav-actions">
+                <button class="icon-btn search-toggle mobile-only" aria-label="Toggle Search">
+                    <i class="fa-solid fa-search"></i>
+                </button>
+                <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="icon-btn cart-toggle" id="cartToggle" aria-label="Open Shopping Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </button>
+                <button class="icon-btn user-btn" aria-label="User Profile">
+                    <i class="fa-regular fa-user"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Search Dropdown -->
+        <div class="mobile-search-dropdown" id="mobileSearch">
+            <input type="text" placeholder="Search products..." aria-label="Mobile Search">
+        </div>
+    </nav>
+
+    <!-- Main View Switcher (SPA Structure) -->
+    <main id="app-content">
+        <!-- View: Home -->
+        <div id="view-home" class="view-section active">
+            <!-- Hero Section -->
+            <section class="hero glass-panel">
+                <div class="hero-content">
+                    <span class="pill-tag">New Collection</span>
+                    <h1>Discover Everything<br><span class="gradient-text">You Need</span></h1>
+                    <p>Shop our curated premium collection. From stylish apparel and everyday essentials to cutting-edge electronics and home goods.</p>
+                    <button class="btn btn-primary btn-lg" id="shopNowBtn">Shop Collection <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="hero-image">
+                    <!-- High quality placeholder image -->
+                    <img src="https://images.unsplash.com/photo-1472851294608-062f124dcb02?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Various shopping items" loading="lazy">
+                </div>
+            </section>
+
+            <!-- Product Grid Placeholder (will be populated dynamically) -->
+            <section class="products-section">
+                <div class="section-header">
+                    <h2>Featured Products</h2>
+                    <div class="filters-toggle">
+                        <button class="btn btn-outline" id="filterToggle"><i class="fa-solid fa-sliders"></i> Filters</button>
+                    </div>
+                </div>
+                
+                <div class="shop-layout">
+                    <!-- Filters Sidebar (Desktop) / Drawer (Mobile) -->
+                    <aside class="filters-sidebar" id="filtersSidebar">
+                        <div class="filter-group">
+                            <h3>Categories</h3>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="category" value="electronics"> Electronics
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="category" value="apparel"> Apparel
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="category" value="home"> Home & Kitchen
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="category" value="accessories"> Accessories
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="filter-group">
+                            <h3>Price Range</h3>
+                            <input type="range" min="0" max="500" value="500" class="slider" id="priceSlider">
+                            <p class="price-label">Up to $<span id="priceVal">500</span></p>
+                        </div>
+                    </aside>
+
+                    <!-- Product Grid -->
+                    <div class="product-grid" id="productGrid">
+                        <!-- JS Will populate cards here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Additional Views (Cart, Checkout) will be added here -->
+    </main>
+
+    <!-- Global UI Elements -->
+    
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar" aria-label="Shopping Cart">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart" id="closeCartBtn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            <p class="empty-cart-msg">Your cart is empty. Start shopping!</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotalPrice">$0.00</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; justify-content: center;" id="checkoutBtn" disabled>Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Checkout Flow Modal -->
+    <div class="checkout-modal" id="checkoutModal" role="dialog" aria-modal="true">
+        <h2 style="margin-bottom: 1.5rem;">Secure Checkout <i class="fa-solid fa-lock text-success" style="font-size: 1rem; color: var(--success)"></i></h2>
+        <div id="checkoutFlowStep1">
+            <p><strong>Order Summary:</strong> <span id="checkoutTotal">$0.00</span></p>
+            <p class="text-secondary" style="margin-bottom: 1.5rem">Enter your shipping details below.</p>
+            <input type="text" id="checkoutName" placeholder="Full Name" style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1rem; background: var(--bg-main); color: var(--text-primary);">
+            <textarea id="checkoutAddress" placeholder="Shipping Address" rows="3" style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1.5rem; background: var(--bg-main); color: var(--text-primary);"></textarea>
+            <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                <button class="btn btn-outline" id="cancelCheckoutBtn">Cancel</button>
+                <button class="btn btn-primary" id="confirmOrderBtn">Confirm Purchase</button>
+            </div>
+        </div>
+        <div id="checkoutFlowStep2" style="display: none; text-align: center;">
+            <i class="fa-solid fa-circle-check" style="font-size: 4rem; color: var(--success); margin-bottom: 1rem;"></i>
+            <h3>Order Placed Successfully!</h3>
+            <p style="margin-bottom: 2rem;">Tracking ID: #AURA-84920</p>
+            
+            <div style="text-align: left; background: var(--bg-main); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h4 style="margin-bottom: 1rem;">Live Order Tracking</h4>
+                <div style="display: flex; align-items: center; gap: 1rem; color: var(--success); margin-bottom: 0.5rem;"><i class="fa-solid fa-box"></i> <span>Order Confirmed</span></div>
+                <div style="display: flex; align-items: center; gap: 1rem; color: var(--text-secondary); margin-bottom: 0.5rem;"><i class="fa-solid fa-truck-fast"></i> <span>In Transit</span></div>
+                <div style="display: flex; align-items: center; gap: 1rem; color: var(--text-secondary);"><i class="fa-solid fa-house-chimney"></i> <span>Delivered</span></div>
+            </div>
+            <button class="btn btn-primary" id="continueShoppingBtn">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

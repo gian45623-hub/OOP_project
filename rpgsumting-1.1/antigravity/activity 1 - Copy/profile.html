@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>University LMS - Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="design.css">
+</head>
+
+<body class="h-screen overflow-hidden flex flex-col">
+    <div id="app-layout" class="flex h-full w-full">
+        <!-- Desktop Nav -->
+        <nav
+            class="hidden md:flex flex-col w-64 bg-white/60 backdrop-blur-md border border-white/50 border-r border-slate-200 h-full pt-6 shadow-sm z-10">
+            <div class="px-6 mb-8 flex items-center gap-3">
+                <div
+                    class="w-9 h-9 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-black text-xl shadow-sm">
+                    E
+                </div>
+                <span class="text-2xl font-black tracking-tight text-slate-800">Edu<span
+                        class="text-emerald-700">Connect</span></span>
+            </div>
+            <a href="dashboard.html"
+                class="nav-btn flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                <i class="fa-solid fa-house mr-3 text-xl"></i> Dashboard
+            </a>
+            <a href="lessons.html"
+                class="nav-btn flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                <i class="fa-solid fa-book-open mr-3 text-xl"></i> Course Modules
+            </a>
+            <a href="assignments.html"
+                class="nav-btn flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                <i class="fa-solid fa-file-arrow-up mr-3 text-xl"></i> Assignments
+            </a>
+            <a href="messages.html"
+                class="nav-btn flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                <i class="fa-solid fa-comments mr-3 text-xl"></i> Forums & Chat
+            </a>
+            <div class="mt-auto border-t border-slate-200 w-full">
+                <a href="profile.html"
+                    class="nav-btn active flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                    <i class="fa-solid fa-user mr-3 text-xl"></i> View Profile
+                </a>
+                <a href="login.html"
+                    class="flex items-center w-full py-4 px-6 text-left text-red-600 hover:bg-red-50 transition font-semibold border-t border-slate-100">
+                    <i class="fa-solid fa-arrow-right-from-bracket mr-3 text-xl"></i> Log Out
+                </a>
+            </div>
+        </nav>
+
+        <main class="flex-1 h-full overflow-y-auto bg-transparent pb-20 md:pb-0">
+            <div class="p-4 md:p-8">
+                <div
+                    class="max-w-3xl mx-auto bg-white/60 backdrop-blur-md border border-white/50 rounded-xl shadow-sm border border-slate-200 p-8 mt-4">
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+                        <div
+                            class="w-32 h-32 bg-emerald-600 rounded-full flex items-center justify-center text-white text-5xl font-bold shadow-lg">
+                            AS
+                        </div>
+                        <div class="flex-1 text-center md:text-left">
+                            <h1 class="text-3xl font-bold text-slate-800 mb-2">Alex Student</h1>
+                            <p class="text-slate-500 mb-4"><i class="fa-solid fa-envelope mr-2"></i>
+                                alex.student@university.edu</p>
+                            <p
+                                class="text-slate-600 mb-6 border-l-4 border-emerald-500 pl-4 bg-slate-100/60 p-3 rounded-r-lg">
+                                Year 3 - Computer Science Major<br>
+                                Enrolled in 5 Active Courses
+                            </p>
+                            <button
+                                class="bg-emerald-600 hover:bg-emerald-600 text-white px-6 py-2 rounded-lg font-semibold transition">
+                                <i class="fa-solid fa-pen-to-square mr-2"></i> Edit Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <nav
+            class="md:hidden fixed bottom-0 w-full bg-white/60 backdrop-blur-md border border-white/50 border-t border-slate-200 flex justify-around py-2 px-1 pb-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-20">
+            <a href="dashboard.html"
+                class="nav-btn flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-house text-2xl mb-1"></i><span class="text-[10px] font-semibold">Home</span>
+            </a>
+            <a href="lessons.html" class="nav-btn flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-book-open text-2xl mb-1"></i><span class="text-[10px] font-semibold">Learn</span>
+            </a>
+            <a href="assignments.html"
+                class="nav-btn flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-file-arrow-up text-2xl mb-1"></i><span
+                    class="text-[10px] font-semibold">Submit</span>
+            </a>
+            <a href="messages.html"
+                class="nav-btn flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-comments text-2xl mb-1"></i><span class="text-[10px] font-semibold">Chat</span>
+            </a>
+            <a href="profile.html"
+                class="nav-btn active flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-user text-2xl mb-1"></i><span class="text-[10px] font-semibold">Profile</span>
+            </a>
+            <a href="login.html" class="flex flex-col items-center justify-center flex-1 text-red-500 pb-2">
+                <i class="fa-solid fa-arrow-right-from-bracket text-2xl mb-1"></i><span
+                    class="text-[10px] font-semibold">Logout</span>
+            </a>
+        </nav>
+    </div>
+    <script src="functions.js"></script>
+</body>
+
+</html>
