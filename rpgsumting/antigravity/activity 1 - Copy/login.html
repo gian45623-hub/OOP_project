@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>University LMS - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="design.css">
+</head>
+
+<body class="h-screen overflow-hidden flex flex-col">
+    <div id="login-view" class="flex flex-col md:flex-row h-screen w-full bg-white/60 backdrop-blur-md border border-white/50 z-50 absolute top-0 left-0">
+        <div class="hidden md:flex md:w-1/2 bg-slate-300/80 backdrop-blur-lg text-white flex-col justify-center items-center p-12">
+            <div class="flex items-center gap-4 mb-6">
+                <div
+                    class="w-16 h-16 rounded-2xl bg-white/60 backdrop-blur-md border border-white/50 flex items-center justify-center text-slate-900 font-black text-4xl shadow-xl transform -rotate-3">
+                    E
+                </div>
+                <span class="text-6xl font-black text-white tracking-tight">EduConnect</span>
+            </div>
+            <p class="text-xl text-slate-800 text-center max-w-lg">Your comprehensive learning environment. Access
+                lessons, submit
+                assignments, and connect globally.</p>
+        </div>
+        <div class="w-full md:w-1/2 flex flex-col justify-center items-center p-8 bg-transparent">
+            <div class="max-w-md w-full bg-white/60 backdrop-blur-md border border-white/50 p-8 rounded-xl shadow-lg border border-slate-100">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Welcome Back</h2>
+                <p class="text-sm text-center text-slate-500 mb-8">HCI Principle: Efficiency via Single Sign-On</p>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-slate-700 mb-1">University Email</label>
+                    <input type="text" value="alex.student@university.edu" readonly
+                        class="w-full px-4 py-2 border border-slate-300 rounded-lg bg-white/40 text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Password</label>
+                    <input type="password" value="********" readonly
+                        class="w-full px-4 py-2 border border-slate-300 rounded-lg bg-white/40 text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    <div class="flex justify-between items-center mt-3">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" checked class="w-4 h-4 text-emerald-600 border-slate-300 rounded focus:ring-emerald-500 focus:ring-offset-1 cursor-pointer accent-emerald-600">
+                            <span class="text-sm font-medium text-slate-600 select-none">Remember me</span>
+                        </label>
+                        <a href="#" class="text-sm font-semibold text-emerald-600 hover:text-emerald-700 hover:underline transition">Forgot password?</a>
+                    </div>
+                </div>
+                <a href="dashboard.html" id="btn-login"
+                    class="block text-center w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 text-lg">
+                    Log In
+                </a>
+                <p class="text-center text-sm text-slate-600 mt-6">
+                    Don't have an account? <a href="signup.html" class="text-emerald-700 font-bold hover:underline">Sign
+                        Up</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="functions.js"></script>
+</body>
+
+</html>

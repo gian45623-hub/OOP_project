@@ -1,0 +1,1621 @@
+RPGSumting Story Bible
+======================
+
+This file contains the current story content used by the game.
+Each story node lists the scene, body text, choices, stat effects, and next destination.
+
+Playable Jobs
+-------------
+Mage: Controls spells and ancient knowledge.
+Starting stats: HP 80, Mana 120, Courage 4, Cunning 7
+
+Knight: Survives danger with armor and courage.
+Starting stats: HP 130, Mana 40, Courage 9, Cunning 3
+
+Rogue: Moves quietly and wins through precision.
+Starting stats: HP 95, Mana 70, Courage 6, Cunning 8
+
+Thief: Uses tricks, speed, and risky opportunities.
+Starting stats: HP 90, Mana 60, Courage 5, Cunning 10
+
+Archer: Reads the battlefield and strikes from range.
+Starting stats: HP 100, Mana 55, Courage 7, Cunning 6
+
+Job Opening Scenarios
+---------------------
+Mage
+----
+[mage_start] Mage Scenario: The Rift Exam
+Scene: ACADEMY
+Story: Your final exam begins at midnight inside the broken wizard tower. A blue rift opens above the spell circle, and your teacher vanishes into it before finishing the warning.
+Choices:
+  1. Seal the rift with a forbidden spell
+     Result: The rift obeys, but the spell burns a silver mark into your hand.
+     Effects: -8 HP, -25 Mana, +1 Courage, +1 Cunning, +3 Fate
+     Next: cave_omen
+  2. Study the old runes before acting
+     Result: The runes reveal that the rift is tied to a cursed crown.
+     Effects: -10 Mana, +3 Cunning, +2 Fate
+     Next: hidden_library
+  3. Step into the rift after your teacher
+     Result: The rift throws you into a cave where names are carved before people die.
+     Effects: -15 HP, +15 Mana, +2 Courage, +1 Fate
+     Next: cave_omen
+
+[mage_observatory_start] Mage Scenario: Stars Out Of Place
+Scene: ACADEMY
+Story: You wake inside the academy observatory while every star in the sky forms your name. The brass telescope points by itself toward the forest, then cracks down the middle.
+Choices:
+  1. Read the star pattern as a prophecy
+     Result: The prophecy names a cave where fate can be edited.
+     Effects: -4 HP, -18 Mana, +2 Cunning, +2 Fate
+     Next: cave_omen
+  2. Follow the telescope's aim into the forest
+     Result: The broken lens still glows when the pines begin whispering.
+     Effects: -3 HP, -8 Mana, +1 Courage, +1 Cunning, +1 Fate
+     Next: forest_spirit
+  3. Report the omen to the royal court
+     Result: The court panics when your warning matches a sealed royal letter.
+     Effects: -10 Mana, +1 Courage, +2 Cunning
+     Next: royal_letter
+
+[mage_grimoire_start] Mage Scenario: The Book That Breathes
+Scene: ACADEMY
+Story: A locked grimoire in the library starts breathing under your desk. When you open it, the pages show three possible deaths and one empty page waiting for ink.
+Choices:
+  1. Write your name on the empty page
+     Result: The book accepts you as part of its unfinished spell.
+     Effects: -6 HP, -16 Mana, +1 Courage, +2 Cunning, +1 Fate
+     Next: mirror_room
+  2. Burn the death pages
+     Result: The smoke forms a map to the roots hiding the cursed crown.
+     Effects: -5 HP, -20 Mana, +2 Courage, +1 Cunning, +3 Fate
+     Next: buried_crown
+  3. Hide the book and pretend nothing happened
+     Result: The book waits. Patient curses are usually the worst kind.
+     Effects: +5 Mana, +1 Cunning, -3 Fate
+     Next: book_returns
+
+
+Knight
+------
+[knight_start] Knight Scenario: The Burning Gate
+Scene: CASTLE
+Story: You are sworn to Castle Ashwake when the enemy breaks the outer gate. Civilians run behind you, the captain is wounded, and the war horn snaps in half.
+Choices:
+  1. Hold the gate alone
+     Result: Your shield becomes the line between panic and survival.
+     Effects: -18 HP, +4 Courage, +2 Fate
+     Next: captain_oath
+  2. Challenge the raider chief
+     Result: The raiders pause when you call their leader by name.
+     Effects: -10 HP, +3 Courage, +1 Cunning
+     Next: castle_siege
+  3. Break formation to evacuate civilians
+     Result: You save lives, but some soldiers call it desertion.
+     Effects: -7 HP, +1 Courage, +2 Cunning, +1 Fate
+     Next: prisoner_secret
+
+[knight_tournament_start] Knight Scenario: The False Tournament
+Scene: BATTLEFIELD
+Story: The king hosts a tournament to choose a new champion, but every opponent wears the same black wax seal. The crowd cheers before the first sword is drawn.
+Choices:
+  1. Win honorably in front of the crowd
+     Result: Your victory forces the king to acknowledge you.
+     Effects: -8 HP, +3 Courage, +2 Fate
+     Next: captain_oath
+  2. Expose the sealed symbol
+     Result: The symbol matches orders found in a hidden royal letter.
+     Effects: -4 HP, +1 Courage, +2 Cunning, +2 Fate
+     Next: royal_letter
+  3. Lose on purpose to follow the champion
+     Result: The fake champion leads you toward a prisoner wagon.
+     Effects: -2 HP, +3 Cunning, +1 Fate
+     Next: prisoner_secret
+
+[knight_watch_start] Knight Scenario: The Haunted Watch
+Scene: RUINS
+Story: Your patrol reaches an abandoned watchtower where old shields hang from the rafters. Each shield carries the name of a knight who died protecting a secret.
+Choices:
+  1. Swear an oath to the dead knights
+     Result: Their shields rise and point toward Castle Ashwake.
+     Effects: -5 Mana, +3 Courage, +2 Fate
+     Next: castle_siege
+  2. Search the tower records
+     Result: The records say the crown was buried to prevent another civil war.
+     Effects: +2 Cunning, +1 Fate
+     Next: buried_crown
+  3. Take the strongest shield
+     Result: The shield protects your body but whispers orders at night.
+     Effects: +12 HP, +1 Courage, -3 Fate
+     Next: shield_whispers
+
+
+Rogue
+-----
+[rogue_start] Rogue Scenario: The Masked Contract
+Scene: MARKET
+Story: A guild contact meets you above the city rooftops with three sealed contracts. One names a royal spy, one names a traitor captain, and one names you.
+Choices:
+  1. Steal the royal spy's ledger
+     Result: The ledger points to a prisoner who knows why the kingdom is being hunted.
+     Effects: -4 HP, -5 Mana, +4 Cunning, +2 Fate
+     Next: prisoner_secret
+  2. Frame the traitor captain
+     Result: The guild pays well, but the lie will echo through the castle.
+     Effects: +4 HP, +3 Cunning, -2 Fate
+     Next: royal_letter
+  3. Open the contract with your name
+     Result: The page is blank until your blood touches it.
+     Effects: -10 HP, -10 Mana, +1 Courage, +3 Cunning, +1 Fate
+     Next: mirror_room
+
+[rogue_prison_start] Rogue Scenario: The Cell With No Lock
+Scene: CASTLE
+Story: You wake in a royal prison cell that has no lock, no guard, and no memory of how you arrived. A prisoner across the hall already knows your real name.
+Choices:
+  1. Free the prisoner who knows your name
+     Result: She claims she used to read fate for the royal family.
+     Effects: -3 HP, -5 Mana, +4 Cunning, +2 Fate
+     Next: prisoner_secret
+  2. Escape through the guard records room
+     Result: The records include a letter proving the siege was planned.
+     Effects: -5 HP, +3 Cunning, +1 Fate
+     Next: royal_letter
+  3. Stay and set a trap for the warden
+     Result: The warden arrives carrying a mirror that shows the wrong version of you.
+     Effects: -8 HP, -5 Mana, +1 Courage, +3 Cunning
+     Next: mirror_room
+
+[rogue_ball_start] Rogue Scenario: The Glass Mask Ball
+Scene: MARKET
+Story: At a noble ball, every guest wears a glass mask. Your job is simple: steal one dance, one key, and one secret before midnight.
+Choices:
+  1. Steal the royal key
+     Result: The key opens a tower library that should not exist.
+     Effects: +4 Cunning, +1 Fate
+     Next: hidden_library
+  2. Dance with the masked seer
+     Result: She tells you the crown is choosing its next owner.
+     Effects: -2 HP, -5 Mana, +3 Cunning, +2 Fate
+     Next: buried_crown
+  3. Sell the guest list to the highest bidder
+     Result: By dawn, every noble owes you a favor or a threat.
+     Effects: +8 HP, +5 Cunning, -3 Fate
+     Next: black_market_bargain
+
+
+Thief
+-----
+[thief_start] Thief Scenario: The Crown Job
+Scene: MARKET
+Story: You sneak through a moonlit market after hearing that a merchant caravan carries a map to a buried crown. Your crew wants gold. The city guard wants your head.
+Choices:
+  1. Pickpocket the map from the caravan master
+     Result: Your fingers find parchment, wax, and a warning written in royal ink.
+     Effects: -3 HP, +4 Cunning, +1 Fate
+     Next: buried_crown
+  2. Free a captured street kid first
+     Result: The kid knows a tunnel under the old tower.
+     Effects: -8 HP, +1 Courage, +3 Cunning, +2 Fate
+     Next: hidden_library
+  3. Double-cross your crew and keep the loot
+     Result: You escape richer, but your name becomes a bounty.
+     Effects: +12 HP, +5 Cunning, -4 Fate
+     Next: city_bounty
+
+[thief_vault_start] Thief Scenario: The Breathing Vault
+Scene: CAVE
+Story: You slip into a noble vault, but the walls pulse like lungs and the gold stacks arrange themselves into arrows. Something in the room wants to be stolen.
+Choices:
+  1. Steal the crown-shaped relic
+     Result: The relic is only a copy, but it knows where the real crown sleeps.
+     Effects: -4 HP, +4 Cunning, +1 Fate
+     Next: buried_crown
+  2. Crack the vault's hidden door
+     Result: The door leads into the old tower's buried library.
+     Effects: -3 HP, +3 Cunning, +2 Fate
+     Next: hidden_library
+  3. Take every coin you can carry
+     Result: The vault lets you leave because greed is easy to track.
+     Effects: +15 HP, +4 Cunning, -4 Fate
+     Next: black_market_bargain
+
+[thief_rooftop_start] Thief Scenario: Chase Over Red Tiles
+Scene: MARKET
+Story: The city guard chases you across rain-slick rooftops after a job goes wrong. Below, raiders enter the city gate disguised as merchants.
+Choices:
+  1. Lead the guards into the raiders
+     Result: Your enemies collide loudly enough to reveal the raider plot.
+     Effects: -8 HP, +1 Courage, +3 Cunning, +1 Fate
+     Next: castle_siege
+  2. Drop into the old aqueduct
+     Result: The tunnel carries you beneath the broken wizard tower.
+     Effects: -5 HP, +4 Cunning, +1 Fate
+     Next: hidden_library
+  3. Escape alone with the stolen purse
+     Result: You survive, but a child at the gate does not.
+     Effects: +10 HP, +3 Cunning, -4 Fate
+     Next: city_bounty
+
+
+Archer
+------
+[archer_start] Archer Scenario: The Last Watch
+Scene: FOREST
+Story: From the forest watchtower, you see smoke rising from Castle Ashwake and unnatural wolves circling the refugee road. You have three arrows ready before the night notices you.
+Choices:
+  1. Shoot the lead shadow wolf
+     Result: The pack turns toward you instead of the refugees.
+     Effects: -6 HP, +3 Courage, +1 Cunning, +1 Fate
+     Next: wolf_ambush
+  2. Guide the refugees through the old pines
+     Result: The trees answer your quiet signals and reveal a silver-eyed spirit.
+     Effects: -4 HP, -5 Mana, +1 Courage, +2 Cunning, +2 Fate
+     Next: forest_spirit
+  3. Track the raiders leaving the castle
+     Result: Their wagon drops a letter sealed in black wax.
+     Effects: -5 HP, +2 Courage, +2 Cunning
+     Next: royal_letter
+
+[archer_beast_start] Archer Scenario: Hunt Of The Moonbeast
+Scene: FOREST
+Story: Your village sends you after a moonbeast that has been taking livestock without leaving tracks. In the mud, you find boot prints instead of claws.
+Choices:
+  1. Track the boot prints
+     Result: The trail leads to raiders dragging treasure from Castle Ashwake.
+     Effects: -4 HP, +2 Courage, +2 Cunning, +1 Fate
+     Next: royal_letter
+  2. Bait the beast with silver arrows
+     Result: The moonbeast is a forest spirit wearing anger as a skin.
+     Effects: -7 HP, -5 Mana, +2 Courage, +1 Cunning, +2 Fate
+     Next: forest_spirit
+  3. Warn the village before hunting
+     Result: Your caution saves lives and earns a captain's attention.
+     Effects: +2 Courage, +1 Cunning, +1 Fate
+     Next: captain_oath
+
+[archer_border_start] Archer Scenario: The Broken Border
+Scene: MOUNTAIN
+Story: At the kingdom border, every warning bell rings at once. A messenger collapses beside you with an arrow in her back and a black-wax letter in her hand.
+Choices:
+  1. Carry the letter to the castle
+     Result: The letter reveals the king planned the fear spreading through the realm.
+     Effects: -5 HP, +2 Courage, +1 Cunning, +2 Fate
+     Next: royal_letter
+  2. Follow the arrow's flight path
+     Result: The shooter hides near a tower that remembers every betrayal.
+     Effects: -6 HP, +2 Courage, +2 Cunning
+     Next: tower_gate
+  3. Save the messenger first
+     Result: Before passing out, she whispers about a prisoner seer.
+     Effects: -3 HP, -5 Mana, +1 Courage, +2 Cunning, +1 Fate
+     Next: prisoner_secret
+
+
+Shared Main Story Branches
+--------------------------
+[crossroads] Moonfall Crossroads
+Scene: FOREST
+Story: A red moon rises over the old road. Three paths wait: a haunted forest, a ruined tower, and the king's road to a castle under siege. Travelers whisper that tonight one choice can rewrite a life.
+Choices:
+  1. Follow the whispering forest trail
+     Result: The trees bend aside, but the shadows steal warmth from your skin.
+     Effects: -8 HP, -4 Mana, +1 Courage, +1 Cunning
+     Next: forest_spirit
+  2. Climb toward the broken wizard tower
+     Result: Old runes flare when you touch the gate.
+     Effects: -8 Mana, +2 Cunning, +1 Fate
+     Next: tower_gate
+  3. Take the king's road to the burning castle
+     Result: You walk toward smoke, shouting, and the sound of steel.
+     Effects: -5 HP, +2 Courage
+     Next: castle_siege
+
+[forest_spirit] The Spirit In The Pines
+Scene: FOREST
+Story: A silver-eyed spirit blocks the path. It says the forest is hungry because people have forgotten their promises. It offers a bargain: power, truth, or safe passage.
+Choices:
+  1. Accept the spirit's power
+     Result: Cold magic rushes through you and leaves a mark on your palm.
+     Effects: -5 HP, +20 Mana, +2 Fate
+     Next: cave_omen
+  2. Ask what promise was broken
+     Result: The spirit shows you a stolen crown buried beneath the roots.
+     Effects: -5 Mana, +1 Courage, +2 Cunning, +1 Fate
+     Next: buried_crown
+  3. Refuse and push deeper into the woods
+     Result: Branches scrape your armor and your pride.
+     Effects: -15 HP, +2 Courage, -1 Fate
+     Next: wolf_ambush
+
+[tower_gate] The Broken Tower
+Scene: TOWER
+Story: The tower door has no handle. Five stones are carved with job marks: staff, shield, dagger, coin, and bow. One stone glows when your shadow crosses it.
+Choices:
+  1. Touch the glowing stone
+     Result: The tower recognizes your path and opens a stairway upward.
+     Effects: -10 Mana, +1 Courage, +1 Cunning, +1 Fate
+     Next: mirror_room
+  2. Force the door open
+     Result: The door breaks, but the tower punishes careless strength.
+     Effects: -18 HP, -5 Mana, +2 Courage, -1 Fate
+     Next: trap_hall
+  3. Search the base for another entrance
+     Result: You find a servant tunnel and avoid the first curse.
+     Effects: +3 Cunning, +1 Fate
+     Next: hidden_library
+
+[castle_siege] Castle Ashwake
+Scene: CASTLE
+Story: The outer wall is broken. Civilians hide near the well while raiders drag treasure through the gate. The captain begs for help, but a prisoner calls your name from a wagon.
+Choices:
+  1. Defend the civilians
+     Result: Your stand buys time for the helpless to escape.
+     Effects: -12 HP, -5 Mana, +3 Courage, +2 Fate
+     Next: captain_oath
+  2. Free the prisoner
+     Result: The prisoner knows why the raiders came: they hunt a cursed crown.
+     Effects: -6 HP, -5 Mana, +3 Cunning, +1 Fate
+     Next: prisoner_secret
+  3. Chase the treasure wagon
+     Result: You recover gold and a sealed royal letter.
+     Effects: -8 HP, +1 Courage, +2 Cunning, -1 Fate
+     Next: royal_letter
+
+[buried_crown] Roots Around Gold
+Scene: RUINS
+Story: The crown under the roots pulses like a sleeping heart. The spirit says it belonged to a ruler who traded the kingdom's future for victory.
+Choices:
+  1. Destroy the crown
+     Result: The forest exhales. Something ancient is finally allowed to die.
+     Effects: -5 HP, -20 Mana, +3 Courage, +3 Fate
+     Next: crown_destroy_ritual
+  2. Wear the crown
+     Result: The crown fits perfectly, as if it waited for you.
+     Effects: +15 HP, -15 Mana, +1 Courage, +1 Cunning, -4 Fate
+     Next: crown_coronation
+  3. Hide it and tell no one
+     Result: Secrets are lighter than gold until they become chains.
+     Effects: +4 Cunning, -2 Fate
+     Next: crown_hide_chase
+
+[cave_omen] The Cave Of Names
+Scene: CAVE
+Story: The spirit's power leads you to a cave wall covered with names. Yours is being carved by an invisible hand, but the ending is still blank.
+Choices:
+  1. Carve your own ending
+     Result: The cave accepts your will, but takes a piece of your life in payment.
+     Effects: -18 HP, -20 Mana, +3 Courage, +2 Cunning, +3 Fate
+     Next: cave_rewrite
+  2. Erase every name you can reach
+     Result: Many fates loosen at once. The cave shakes with anger.
+     Effects: -25 HP, -15 Mana, +2 Courage, +3 Cunning, +4 Fate
+     Next: fate_prison_break
+  3. Leave the wall untouched
+     Result: You keep your power, but the cave keeps its prisoners.
+     Effects: +10 HP, +10 Mana, -3 Fate
+     Next: cave_leave_consequence
+
+[wolf_ambush] Eyes Between Trees
+Scene: FOREST
+Story: Wolves made of smoke surround you. They do not bark. They wait for fear.
+Choices:
+  1. Stand your ground
+     Result: The wolves bow to courage and vanish.
+     Effects: -10 HP, +3 Courage, +2 Fate
+     Next: captain_oath
+  2. Distract them and escape
+     Result: A clever trick keeps your bones unbitten.
+     Effects: -5 HP, -5 Mana, +3 Cunning, +1 Fate
+     Next: hidden_library
+  3. Run blindly
+     Result: Panic has a cost.
+     Effects: -28 HP, -3 Fate
+     Next: dark_marsh
+
+[mirror_room] Room Of Possible Selves
+Scene: TOWER
+Story: Mirrors show versions of you: one crowned, one forgotten, one feared, and one surrounded by friends. The center mirror is empty.
+Choices:
+  1. Choose the crowned reflection
+     Result: Ambition sharpens your voice.
+     Effects: +10 HP, -10 Mana, +1 Courage, +1 Cunning, -3 Fate
+     Next: throne_vision
+  2. Choose the forgotten reflection
+     Result: You step away from glory and toward peace.
+     Effects: +5 HP, +2 Cunning, +2 Fate
+     Next: quiet_road_trial
+  3. Break the mirrors
+     Result: The tower loses control of the story.
+     Effects: -10 HP, -15 Mana, +3 Courage, +2 Cunning, +3 Fate
+     Next: mirror_breakfall
+
+[trap_hall] Hall Of Little Blades
+Scene: TOWER
+Story: The broken entrance leads into a narrow hallway. Hidden blades click behind the stone walls.
+Choices:
+  1. Dash through before the trap resets
+     Result: Speed saves you from the worst of it.
+     Effects: -14 HP, +2 Courage, +1 Cunning
+     Next: mirror_room
+  2. Study the rhythm
+     Result: Pattern beats panic.
+     Effects: -4 HP, -4 Mana, +3 Cunning, +1 Fate
+     Next: hidden_library
+  3. Turn back to the crossroads
+     Result: The night gives you one more chance.
+     Effects: No stat change
+     Next: crossroads
+
+[hidden_library] Library Below Dust
+Scene: TOWER
+Story: Under the tower is a library no king could burn. A book opens by itself and writes: The crown is not treasure. It is a question.
+Choices:
+  1. Read the forbidden chapter
+     Result: The truth hurts, but it makes the next lie easier to see.
+     Effects: -5 HP, -15 Mana, +3 Cunning, +2 Fate
+     Next: prisoner_secret
+  2. Take the map inside the book
+     Result: The map marks a crown buried under forest roots.
+     Effects: +2 Cunning, +1 Fate
+     Next: buried_crown
+  3. Burn the book
+     Result: Knowledge screams when it dies.
+     Effects: -10 Mana, +1 Courage, -3 Fate
+     Next: ash_oracle
+
+[captain_oath] The Captain's Oath
+Scene: CASTLE
+Story: The captain kneels and offers you command of the surviving guard. With one order, you can save the castle, pursue the raiders, or leave the war behind.
+Choices:
+  1. Lead the guard in a counterattack
+     Result: Your name becomes a battle cry.
+     Effects: -18 HP, -5 Mana, +4 Courage, +2 Fate
+     Next: war_council
+  2. Send scouts after the raiders
+     Result: A careful hunt finds the trail to the buried crown.
+     Effects: -4 HP, +3 Cunning, +1 Fate
+     Next: raider_trail
+  3. Walk away from the crown and war
+     Result: You choose a smaller life that belongs to you.
+     Effects: +8 HP, +1 Cunning, +2 Fate
+     Next: deserter_crossing
+
+[prisoner_secret] The Prisoner's Secret
+Scene: VILLAGE
+Story: The prisoner was once the royal seer. She says the crown chooses people who think fate is something to conquer.
+Choices:
+  1. Trust the seer
+     Result: She leads you to the crown's resting place.
+     Effects: -5 Mana, +2 Cunning, +2 Fate
+     Next: seer_escape
+  2. Trade the secret for power
+     Result: The wrong people pay very well.
+     Effects: +10 HP, +4 Cunning, -3 Fate
+     Next: black_market_bargain
+  3. Ask her to teach you fate magic
+     Result: Magic answers, but not gently.
+     Effects: -10 HP, +20 Mana, +1 Cunning, +1 Fate
+     Next: fate_magic_lesson
+
+[royal_letter] A Letter Sealed In Black Wax
+Scene: CASTLE
+Story: The royal letter admits the siege was planned. The king wanted fear, because fear makes people beg for chains.
+Choices:
+  1. Expose the king
+     Result: Truth spreads faster than fire.
+     Effects: -10 HP, -5 Mana, +3 Courage, +2 Cunning, +4 Fate
+     Next: rebellion_square
+  2. Blackmail the king
+     Result: The throne becomes your purse.
+     Effects: +15 HP, +4 Cunning, -4 Fate
+     Next: blackmail_court
+  3. Give the letter to the captain
+     Result: The guard finally knows where loyalty should point.
+     Effects: +2 Courage, +1 Cunning, +1 Fate
+     Next: loyal_guard
+
+[crown_destroy_ritual] The Ashen Crown Ritual
+Scene: TEMPLE
+Story: The crown breaks, but its ashes swirl into three shapes: a tree, a banner, and your own shadow. Destroying an artifact is easier than deciding who inherits the freedom it leaves behind.
+Choices:
+  1. Bind the ashes to the forest
+     Result: The roads grow safer, and the forest accepts you as its living oath.
+     Effects: -8 HP, -12 Mana, +3 Courage, +4 Fate
+     Next: ending_warden
+  2. Scatter the ashes over the rebel crowd
+     Result: Every person touched by ash remembers a future stolen from them.
+     Effects: -5 HP, -10 Mana, +2 Courage, +3 Cunning, +4 Fate
+     Next: ending_liberator
+  3. Seal the ashes inside your shadow
+     Result: You keep the curse away from others, but your shadow starts making plans.
+     Effects: -3 HP, -8 Mana, +4 Cunning, -1 Fate
+     Next: ending_shadow
+
+[crown_coronation] The Crown That Kneels To No One
+Scene: CASTLE
+Story: The crown shows you every road, every army, and every hungry village. It does not ask whether you want power. It asks what kind of ruler you can survive becoming.
+Choices:
+  1. Command the kingdom into obedience
+     Result: Peace arrives quickly when fear carries the law.
+     Effects: +20 HP, -15 Mana, +2 Courage, +1 Cunning, -5 Fate
+     Next: ending_tyrant
+  2. Use the crown to end the siege
+     Result: The army bows because victory is difficult to argue with.
+     Effects: -8 HP, -20 Mana, +4 Courage, +2 Fate
+     Next: ending_champion
+  3. Remove the crown before it learns your heart
+     Result: The crown hates being refused by someone it almost owned.
+     Effects: -10 HP, -10 Mana, +2 Courage, +2 Cunning, +2 Fate
+     Next: crown_hide_chase
+
+[crown_hide_chase] The Chase Through Reedwater Marsh
+Scene: SWAMP
+Story: By dawn, crown-hunters follow you into black water and hanging fog. The crown hums from your pack, promising silence if you give it one honest secret.
+Choices:
+  1. Lose the hunters in the marsh
+     Result: You become a rumor with muddy boots and dangerous friends.
+     Effects: -6 HP, +4 Cunning, -2 Fate
+     Next: ending_shadow
+  2. Give the crown to the river temple
+     Result: The temple bells ring under the water for the first time in a century.
+     Effects: -4 HP, -8 Mana, +2 Courage, +2 Cunning, +3 Fate
+     Next: ending_warden
+  3. Walk away and let the hunters fight over it
+     Result: You leave fate behind while louder people destroy each other over it.
+     Effects: +5 HP, +2 Cunning, +2 Fate
+     Next: ending_peace
+
+[cave_rewrite] Ink In The Cave Wall
+Scene: CAVE
+Story: Your carved ending bleeds into the stone and opens a tunnel of unfinished lives. Voices beg you to choose not only your ending, but the rules for everyone else's.
+Choices:
+  1. Write that no fate is permanent
+     Result: The cave cracks from floor to ceiling as choice returns to the world.
+     Effects: -12 HP, -18 Mana, +3 Courage, +2 Cunning, +4 Fate
+     Next: ending_free
+  2. Write yourself as guardian of all endings
+     Result: A thousand roads bend toward your judgment.
+     Effects: -22 Mana, +2 Courage, +1 Cunning, +1 Fate
+     Next: ending_warden
+  3. Write your enemies out of the story
+     Result: The cave obeys, and you learn how easy cruelty sounds when written neatly.
+     Effects: +10 HP, -20 Mana, +1 Courage, +3 Cunning, -5 Fate
+     Next: ending_tyrant
+
+[fate_prison_break] The Prison Of Names
+Scene: TEMPLE
+Story: The erased names become people made of candlelight. Some thank you. Some blame you for waking them into a world that already replaced them.
+Choices:
+  1. Lead the freed names into the capital
+     Result: The city gates open to people history tried to bury.
+     Effects: -12 HP, -12 Mana, +3 Courage, +3 Cunning, +4 Fate
+     Next: ending_liberator
+  2. Teach them to choose new lives
+     Result: The world grows stranger, kinder, and harder to control.
+     Effects: -8 HP, -10 Mana, +2 Courage, +3 Cunning, +3 Fate
+     Next: ending_free
+  3. Use them as an invisible army
+     Result: No wall can stop soldiers who were once only names.
+     Effects: +5 HP, -14 Mana, +4 Cunning, -3 Fate
+     Next: ending_shadow
+
+[cave_leave_consequence] The Road That Remembers
+Scene: MOUNTAIN
+Story: You leave the cave untouched, but every milestone on the road now has your name carved into it. The old story is following at walking speed.
+Choices:
+  1. Keep walking until the road gives up
+     Result: You become hard to find and harder to command.
+     Effects: +6 HP, +1 Courage, +2 Cunning, +2 Fate
+     Next: ending_peace
+  2. Return and face the cave properly
+     Result: The cave opens like it expected your second thought.
+     Effects: -6 HP, -8 Mana, +2 Courage, +1 Cunning, +1 Fate
+     Next: cave_rewrite
+  3. Let the old story catch you
+     Result: Comfort arrives wearing chains you recognize.
+     Effects: +10 HP, +10 Mana, -4 Fate
+     Next: ending_bound
+
+[throne_vision] The Throne Inside The Mirror
+Scene: CASTLE
+Story: The crowned reflection steps out and offers you a throne made from every choice you avoided. It knows your voice. It has been practicing.
+Choices:
+  1. Take the throne from your reflection
+     Result: Only one version of you is allowed to rule.
+     Effects: +12 HP, -12 Mana, +2 Courage, +2 Cunning, -4 Fate
+     Next: ending_tyrant
+  2. Command the reflection to fight beside you
+     Result: A second self is a dangerous ally but a useful one.
+     Effects: -6 HP, -16 Mana, +3 Courage, +1 Cunning, +1 Fate
+     Next: war_council
+  3. Refuse the throne and shatter the room
+     Result: The mirror world screams as its favorite ending dies.
+     Effects: -10 HP, -10 Mana, +3 Courage, +2 Cunning, +3 Fate
+     Next: mirror_breakfall
+
+[quiet_road_trial] The Trial Of The Quiet Road
+Scene: MOUNTAIN
+Story: The road away from glory is guarded by three silent figures: a child you could save, an enemy you could spare, and a crown you could ignore.
+Choices:
+  1. Save the child and keep walking
+     Result: No song follows you, but one family remembers.
+     Effects: +4 HP, +2 Cunning, +3 Fate
+     Next: ending_peace
+  2. Spare the enemy and ask for truth
+     Result: Mercy buys information about the raiders' last camp.
+     Effects: -3 HP, +1 Courage, +2 Cunning, +1 Fate
+     Next: raider_trail
+  3. Ignore the crown completely
+     Result: For once, fate is the thing being abandoned.
+     Effects: +2 Courage, +2 Cunning, +3 Fate
+     Next: ending_free
+
+[mirror_breakfall] Falling Through Broken Reflections
+Scene: TOWER
+Story: Every shard becomes a doorway. You fall past lives where you were kinder, crueler, richer, dead, loved, feared, and forgotten.
+Choices:
+  1. Land in the life where people are free
+     Result: You drag that possibility back into your own world.
+     Effects: -10 HP, -12 Mana, +3 Courage, +3 Cunning, +4 Fate
+     Next: ending_liberator
+  2. Land in the life where no one controls you
+     Result: You wake with glass in your hands and no path above you.
+     Effects: -8 HP, -10 Mana, +3 Courage, +2 Cunning, +3 Fate
+     Next: ending_free
+  3. Grab the shard showing your safest life
+     Result: Safety has a door. It also has a lock.
+     Effects: +8 HP, +1 Cunning, -3 Fate
+     Next: ending_bound
+
+[war_council] War Council At Dawn
+Scene: BATTLEFIELD
+Story: By sunrise, captains, scouts, rebels, and frightened nobles argue over a map stained with tea and blood. Everyone wants your decision because none of them want the blame.
+Choices:
+  1. Lead a direct strike on the raiders
+     Result: You turn a broken army into a spear.
+     Effects: -15 HP, -5 Mana, +4 Courage, +2 Fate
+     Next: ending_champion
+  2. Reveal the king's betrayal to every soldier
+     Result: The army changes sides one campfire at a time.
+     Effects: -8 HP, -5 Mana, +3 Courage, +3 Cunning, +4 Fate
+     Next: ending_liberator
+  3. Take command and keep the truth hidden
+     Result: Victory comes first. Explanations can be buried later.
+     Effects: +8 HP, +3 Courage, +2 Cunning, -4 Fate
+     Next: ending_tyrant
+
+[raider_trail] Trail Of Broken Wheels
+Scene: DOCKS
+Story: Your scouts find the raiders' wagon trail near the river docks. The tracks split three ways: toward smugglers, toward the swamp, and toward a camp flying stolen royal colors.
+Choices:
+  1. Question the smugglers
+     Result: The smugglers sell secrets cheaper than loyalty.
+     Effects: -2 HP, +3 Cunning
+     Next: black_market_bargain
+  2. Follow the swamp tracks
+     Result: The crown's trail vanishes into Reedwater fog.
+     Effects: -5 HP, +1 Courage, +2 Cunning, +1 Fate
+     Next: crown_hide_chase
+  3. Attack the stolen-color camp
+     Result: The camp breaks, but the survivors name the king as their buyer.
+     Effects: -12 HP, -4 Mana, +3 Courage, +1 Cunning, +2 Fate
+     Next: rebellion_square
+
+[deserter_crossing] The Bridge Of Deserters
+Scene: MOUNTAIN
+Story: On the road away from war, deserters from both armies block a narrow bridge. They are tired, hungry, and one insult away from killing each other.
+Choices:
+  1. Convince them to protect refugees
+     Result: A broken army becomes a stubborn little shield.
+     Effects: -3 HP, +2 Courage, +2 Cunning, +3 Fate
+     Next: ending_warden
+  2. Lead them back to finish the fight
+     Result: They return because you make courage sound possible.
+     Effects: +3 Courage, +1 Fate
+     Next: war_council
+  3. Cross alone before they choose for you
+     Result: You leave the war smaller than you found it.
+     Effects: +8 HP, +1 Cunning, +2 Fate
+     Next: ending_peace
+
+[seer_escape] Escape By The Moonlit Docks
+Scene: DOCKS
+Story: The seer leads you through fish markets and foggy docks while royal hunters search every boat. She says the crown does not predict rulers. It breeds them.
+Choices:
+  1. Sail toward the buried crown
+     Result: The tide carries you to ruins older than the kingdom.
+     Effects: -3 HP, -5 Mana, +2 Cunning, +2 Fate
+     Next: buried_crown
+  2. Ask the seer to break your prophecy
+     Result: She can try, but prophecy breaks like glass: loudly and sharply.
+     Effects: -6 HP, -10 Mana, +1 Courage, +2 Cunning, +2 Fate
+     Next: fate_magic_lesson
+  3. Hide the seer in a quiet village
+     Result: She survives, and for once that is enough.
+     Effects: +4 HP, +3 Cunning, +2 Fate
+     Next: ending_peace
+
+[black_market_bargain] The Black Market Under Lantern Rain
+Scene: MARKET
+Story: Below the city, masked traders sell maps, poisons, fake crowns, stolen prayers, and memories in blue bottles. Every deal has a price written after you agree.
+Choices:
+  1. Buy the map no one will touch
+     Result: The map points to crown roots and marks a warning in your handwriting.
+     Effects: -2 HP, +3 Cunning, +1 Fate
+     Next: buried_crown
+  2. Sell a secret about the king
+     Result: The market turns your whisper into a weapon.
+     Effects: +6 HP, +4 Cunning, -1 Fate
+     Next: rebellion_square
+  3. Trade your mercy for influence
+     Result: Power answers fast when you stop asking nicely.
+     Effects: +10 HP, +5 Cunning, -4 Fate
+     Next: ending_shadow
+
+[fate_magic_lesson] The Lesson No Academy Teaches
+Scene: ACADEMY
+Story: The seer draws a circle in salt and says fate magic is not about seeing the future. It is about noticing who keeps paying for it.
+Choices:
+  1. Use the lesson to rewrite your path
+     Result: The cave of names opens in your dreams and waits for your hand.
+     Effects: -8 HP, -18 Mana, +2 Courage, +2 Cunning, +3 Fate
+     Next: cave_rewrite
+  2. Use the lesson to free trapped names
+     Result: Every name you speak becomes a candle in the dark.
+     Effects: -10 HP, -15 Mana, +2 Courage, +3 Cunning, +4 Fate
+     Next: fate_prison_break
+  3. Refuse the lesson before it changes you
+     Result: Some doors close gently. This one bites.
+     Effects: +8 Mana, +1 Cunning, -3 Fate
+     Next: ending_bound
+
+[rebellion_square] The Square Where Truth Catches Fire
+Scene: MARKET
+Story: By noon, the king's letter has been copied onto walls, shields, tavern doors, and bread wrappers. The crowd waits for someone to aim its anger.
+Choices:
+  1. Turn the crowd into a rebellion
+     Result: The palace gates shake under ordinary hands.
+     Effects: -10 HP, -5 Mana, +3 Courage, +3 Cunning, +5 Fate
+     Next: ending_liberator
+  2. Protect the crowd from royal soldiers
+     Result: Your defense becomes the first honest banner of the war.
+     Effects: -12 HP, -4 Mana, +4 Courage, +1 Cunning, +3 Fate
+     Next: ending_champion
+  3. Let the crowd crown you instead
+     Result: People frightened of kings can still build another one.
+     Effects: +12 HP, -5 Mana, +2 Courage, +3 Cunning, -4 Fate
+     Next: ending_tyrant
+
+[blackmail_court] The Court Of Smiling Knives
+Scene: CASTLE
+Story: The king reads your blackmail note without blinking. Then every courtier in the room begins deciding whether you are useful, dangerous, or already dead.
+Choices:
+  1. Make the king your puppet
+     Result: The kingdom never sees your hand, only the strings moving.
+     Effects: +8 HP, +5 Cunning, -4 Fate
+     Next: ending_shadow
+  2. Take the throne openly
+     Result: Subtlety dies the moment the crown touches your head.
+     Effects: +15 HP, -5 Mana, +3 Courage, +2 Cunning, -5 Fate
+     Next: ending_tyrant
+  3. Release the evidence before they kill you
+     Result: Your escape is ugly, but the truth survives it.
+     Effects: -15 HP, +2 Courage, +3 Cunning, +3 Fate
+     Next: rebellion_square
+
+[loyal_guard] The Guard Chooses A Side
+Scene: CASTLE
+Story: The captain reads the royal letter twice. Then he orders every guard to remove the king's colors until loyalty means something again.
+Choices:
+  1. March with the guard to the palace
+     Result: The city hears armored boots and opens its shutters.
+     Effects: -3 HP, +3 Courage, +1 Cunning, +2 Fate
+     Next: war_council
+  2. Send the guard to protect the square
+     Result: The rebellion gains shields before it gains leaders.
+     Effects: -2 HP, +2 Courage, +2 Cunning, +3 Fate
+     Next: rebellion_square
+  3. Keep the letter secret until the war ends
+     Result: The guard obeys, but silence starts tasting like a crown.
+     Effects: -8 HP, +3 Courage
+     Next: ending_champion
+
+[ash_oracle] The Oracle In The Burned Pages
+Scene: TEMPLE
+Story: The book burns into ash, but the ash arranges itself into a face on the floor. It says knowledge can die, but consequences are excellent at surviving.
+Choices:
+  1. Ask the oracle how to fix the damage
+     Result: It points you toward the cave where stories are carved.
+     Effects: -5 HP, -8 Mana, +1 Courage, +2 Cunning, +2 Fate
+     Next: cave_omen
+  2. Trap the oracle in a mirror shard
+     Result: The oracle laughs because prisons still count as homes.
+     Effects: -4 HP, -10 Mana, +3 Cunning
+     Next: mirror_room
+  3. Scatter the ash before it speaks again
+     Result: The silence you wanted finally arrives.
+     Effects: +4 HP, +1 Cunning, -3 Fate
+     Next: ending_bound
+
+[dark_marsh] The Dark Marsh After Panic
+Scene: SWAMP
+Story: Running saves you from the wolves but not from the marsh. The mud pulls at your boots while pale lanterns drift ahead, pretending to be safe.
+Choices:
+  1. Follow the pale lanterns
+     Result: They lead to a river temple where lost things are judged.
+     Effects: -8 HP, -6 Mana, +1 Courage, +1 Cunning, +1 Fate
+     Next: crown_hide_chase
+  2. Climb a dead tree and wait for sunrise
+     Result: From above, you see the old tower through the fog.
+     Effects: -4 HP, +1 Courage, +2 Cunning
+     Next: tower_gate
+  3. Keep running until your body quits
+     Result: Fear spends the last of your strength.
+     Effects: -200 HP, -5 Fate
+     Next: fallen
+
+[book_returns] The Book Under Your Pillow
+Scene: ACADEMY
+Story: You hide the grimoire, but it appears under your pillow the next morning with a fresh page titled Mistakes That Think They Are Secrets.
+Choices:
+  1. Finally read the fresh page
+     Result: The page explains why the crown was buried under living roots.
+     Effects: -2 HP, -8 Mana, +3 Cunning, +2 Fate
+     Next: hidden_library
+  2. Bring the book to the seer
+     Result: The seer recognizes the handwriting as your future self.
+     Effects: -4 HP, -8 Mana, +1 Courage, +2 Cunning, +2 Fate
+     Next: fate_magic_lesson
+  3. Lock it in the academy vault
+     Result: By night, the vault breathes through the walls.
+     Effects: +8 Mana, -3 Fate
+     Next: ending_bound
+
+[shield_whispers] The Shield That Remembers Wars
+Scene: BATTLEFIELD
+Story: The haunted shield blocks arrows before they are fired and whispers commands before enemies move. It is protecting you. It is also training you.
+Choices:
+  1. Use the shield to save the castle
+     Result: Every blocked strike becomes a reason people follow you.
+     Effects: +4 HP, +3 Courage, +1 Fate
+     Next: war_council
+  2. Let the shield guide you to the crown
+     Result: It remembers the ruler who first carried it.
+     Effects: +8 HP, -5 Mana, +2 Courage, -2 Fate
+     Next: crown_coronation
+  3. Break the shield before it owns your arm
+     Result: The dead knights inside it finally sleep.
+     Effects: -10 HP, -5 Mana, +3 Courage, +1 Cunning, +3 Fate
+     Next: ending_warden
+
+[city_bounty] Wanted In Every Alley
+Scene: MARKET
+Story: Your face appears on wet posters before sunset. Bounty hunters search rooftops, guards search taverns, and your old crew searches with personal enthusiasm.
+Choices:
+  1. Hide in the black market
+     Result: The city below the city always has room for trouble.
+     Effects: -3 HP, +4 Cunning
+     Next: black_market_bargain
+  2. Trade your bounty for the seer's location
+     Result: Someone always knows where a hunted prophet sleeps.
+     Effects: -5 HP, +3 Cunning, +1 Fate
+     Next: prisoner_secret
+  3. Turn the bounty hunters against each other
+     Result: By midnight, half the city fears your name and the other half wants lessons.
+     Effects: +8 HP, +5 Cunning, -3 Fate
+     Next: ending_shadow
+
+Random Side Scenarios
+---------------------
+[random_moon_shrine] Random Scenario: Moon Shrine
+Scene: TEMPLE
+Story: A roadside shrine lights itself as you pass. Three bowls wait under the moon: water, ash, and silver thread.
+Choices:
+  1. Drink from the water bowl
+     Result: The water closes old cuts and tastes like rain on stone.
+     Effects: +16 HP, +5 Mana, +1 Fate
+     Next: __resume_story__
+  2. Mark your palm with ash
+     Result: The ash burns, but your next fear feels smaller.
+     Effects: -4 HP, +2 Courage, +2 Fate
+     Next: __resume_story__
+  3. Steal the silver thread
+     Result: The thread wraps itself around your wrist like a debt.
+     Effects: +3 Cunning, -2 Fate
+     Next: __resume_story__
+
+[random_traveling_merchant] Random Scenario: Traveling Merchant
+Scene: MARKET
+Story: A lantern merchant rolls a cart onto the road and offers potions, rumors, and one box that keeps knocking from the inside.
+Choices:
+  1. Buy a red healing bottle
+     Result: It is too sweet, but it works.
+     Effects: +22 HP, -3 Mana
+     Next: __resume_story__
+  2. Pay for a rumor
+     Result: The rumor changes shape until it fits your problem.
+     Effects: -4 Mana, +3 Cunning, +1 Fate
+     Next: __resume_story__
+  3. Open the knocking box
+     Result: A tiny curse bites your finger and runs away laughing.
+     Effects: -12 HP, +8 Mana, +1 Courage, +1 Cunning, -1 Fate
+     Next: __resume_story__
+
+[random_bandit_road] Random Scenario: Road Ambush
+Scene: ROAD
+Story: Bandits step from the ditch with rusty blades and nervous eyes. Their leader keeps glancing behind them, like something worse is following.
+Choices:
+  1. Fight through the ambush
+     Result: The bandits scatter when you break their courage first.
+     Effects: -12 HP, +3 Courage, +1 Fate
+     Next: __resume_story__
+  2. Trick them into chasing a false trail
+     Result: They run the wrong way with impressive confidence.
+     Effects: -2 HP, -2 Mana, +4 Cunning, +1 Fate
+     Next: __resume_story__
+  3. Pay them to warn you about the road ahead
+     Result: Their warning saves time, pride, and possibly blood.
+     Effects: -5 Mana, +2 Cunning
+     Next: __resume_story__
+
+[random_wild_magic] Random Scenario: Wild Magic Storm
+Scene: ACADEMY
+Story: A storm of blue sparks rolls across the ground. Rocks float, shadows point upward, and your heartbeat starts counting backward.
+Choices:
+  1. Absorb the loose magic
+     Result: Power floods you faster than comfort allows.
+     Effects: -10 HP, +24 Mana, +1 Cunning, +1 Fate
+     Next: __resume_story__
+  2. Ground the storm with a weapon
+     Result: The sparks vanish through steel and leave your hands shaking.
+     Effects: -5 HP, -4 Mana, +2 Courage, +1 Fate
+     Next: __resume_story__
+  3. Study the pattern from a distance
+     Result: The storm is random, but not meaningless.
+     Effects: -6 Mana, +3 Cunning, +2 Fate
+     Next: __resume_story__
+
+[random_storm_bridge] Random Scenario: Storm Bridge
+Scene: RIVER
+Story: Rain hammers a rope bridge over a white river. Halfway across, the far anchor snaps and the bridge drops like a dying flag.
+Choices:
+  1. Leap before the bridge falls
+     Result: You land hard, alive, and extremely awake.
+     Effects: -14 HP, +3 Courage, +1 Fate
+     Next: __resume_story__
+  2. Cut a support rope to swing across
+     Result: The river misses you by one clever idea.
+     Effects: -6 HP, +4 Cunning, +1 Fate
+     Next: __resume_story__
+  3. Climb down and cross through the river
+     Result: The cold steals strength but not resolve.
+     Effects: -10 HP, -4 Mana, +2 Courage, +1 Cunning
+     Next: __resume_story__
+
+[random_lost_caravan] Random Scenario: Lost Caravan
+Scene: ROAD
+Story: A caravan circles the same milestone for the seventh time. The drivers offer supplies if you can prove the road is not eating them.
+Choices:
+  1. Break the milestone's curse
+     Result: The road stops turning in circles and the caravan cheers.
+     Effects: -3 HP, -10 Mana, +2 Courage, +1 Cunning, +3 Fate
+     Next: __resume_story__
+  2. Guide them by hidden paths
+     Result: You find shortcuts even the map refuses to admit.
+     Effects: +4 HP, +3 Cunning, +1 Fate
+     Next: __resume_story__
+  3. Take supplies while they argue
+     Result: Nobody notices until you are already useful somewhere else.
+     Effects: +18 HP, +3 Cunning, -2 Fate
+     Next: __resume_story__
+
+[random_fever_dream] Random Scenario: Fever Dream
+Scene: SWAMP
+Story: For one breath, the world tilts into a dream. A child made of candlelight asks which memory you are willing to lose.
+Choices:
+  1. Lose a painful memory
+     Result: You wake lighter, but less careful.
+     Effects: +10 HP, -1 Courage, +2 Fate
+     Next: __resume_story__
+  2. Lose a proud memory
+     Result: Humility hurts in a clean way.
+     Effects: +8 Mana, +1 Courage, +1 Cunning, +2 Fate
+     Next: __resume_story__
+  3. Refuse the bargain
+     Result: The dream leaves claw marks on the air.
+     Effects: -8 HP, +2 Courage
+     Next: __resume_story__
+
+[random_old_companion] Random Scenario: An Old Companion
+Scene: VILLAGE
+Story: Someone from your past waits beside a dead campfire. They know one truth about you and one lie everyone else believes.
+Choices:
+  1. Ask for the truth
+     Result: The truth hurts less than wondering.
+     Effects: -4 Mana, +1 Courage, +2 Cunning, +2 Fate
+     Next: __resume_story__
+  2. Ask them to spread the lie
+     Result: Sometimes reputation is a weapon with no handle.
+     Effects: +6 HP, +4 Cunning, -2 Fate
+     Next: __resume_story__
+  3. Share your supplies and part kindly
+     Result: Kindness costs something, which is why it counts.
+     Effects: -2 HP, +2 Courage, +1 Cunning, +2 Fate
+     Next: __resume_story__
+
+[random_forest_clearing] Random Scenario: Forest Clearing
+Scene: FOREST
+Story: You find a quiet clearing where old lanterns hang from branches with no hooks. Each lantern shows a place you have not visited yet.
+Choices:
+  1. Follow the lantern showing a safe path
+     Result: The forest opens a shortcut and leaves green light on your boots.
+     Effects: +6 HP, +1 Courage, +1 Cunning, +2 Fate
+     Next: __resume_story__
+  2. Break the darkest lantern
+     Result: The clearing shudders, but a hidden fear loses its grip.
+     Effects: -6 HP, -4 Mana, +3 Courage, +2 Fate
+     Next: __resume_story__
+  3. Take a lantern for later
+     Result: It glows only when you are about to lie.
+     Effects: -2 Mana, +4 Cunning
+     Next: __resume_story__
+
+[random_village_festival] Random Scenario: Village Festival
+Scene: VILLAGE
+Story: A village festival blocks the road with music, masks, hot food, and suspiciously cheerful guards. Everyone insists you join before asking why you are armed.
+Choices:
+  1. Rest and eat with the villagers
+     Result: A full meal and honest laughter put strength back in your bones.
+     Effects: +24 HP, +1 Fate
+     Next: __resume_story__
+  2. Join the mask contest to gather rumors
+     Result: Behind masks, people tell the truth more easily.
+     Effects: -3 Mana, +4 Cunning, +1 Fate
+     Next: __resume_story__
+  3. Quietly check why the guards are nervous
+     Result: You spot trouble early and leave with useful warnings.
+     Effects: -3 HP, +2 Courage, +2 Cunning, +2 Fate
+     Next: __resume_story__
+
+[random_lonely_road] Random Scenario: The Lonely Road
+Scene: ROAD
+Story: The road stretches too straight for too long. Behind you, your footprints begin pointing the wrong direction.
+Choices:
+  1. Keep walking without looking back
+     Result: The road respects stubbornness more than fear.
+     Effects: -4 HP, +3 Courage, +2 Fate
+     Next: __resume_story__
+  2. Mark the road with your weapon
+     Result: The false path peels away like old paint.
+     Effects: -2 HP, -3 Mana, +1 Courage, +2 Cunning, +1 Fate
+     Next: __resume_story__
+  3. Turn around and confront the wrong footprints
+     Result: Your shadow takes one step late for the rest of the day.
+     Effects: -8 HP, +8 Mana, +3 Cunning, -1 Fate
+     Next: __resume_story__
+
+[random_graveyard_bells] Random Scenario: Graveyard Bells
+Scene: GRAVEYARD
+Story: A graveyard bell rings under the earth. The headstones lean toward you as if trying to read your face.
+Choices:
+  1. Answer the buried bell
+     Result: The dead lend you courage, but their grief is heavy.
+     Effects: -5 HP, -5 Mana, +3 Courage, +2 Fate
+     Next: __resume_story__
+  2. Read the oldest headstone
+     Result: The name is almost yours, but not quite.
+     Effects: -6 Mana, +3 Cunning, +2 Fate
+     Next: __resume_story__
+  3. Leave an offering and move on
+     Result: Something unseen accepts the gift and lets the road quiet down.
+     Effects: -2 HP, +1 Courage, +1 Cunning, +2 Fate
+     Next: __resume_story__
+
+[random_inn_room] Random Scenario: The Locked Inn Room
+Scene: INN
+Story: At a roadside inn, the keeper gives you a key to a room that is already locked from the inside. Someone behind the door is humming your name.
+Choices:
+  1. Open the room with force
+     Result: The door breaks, and whatever waited inside leaves clawed marks in the floor.
+     Effects: -10 HP, +3 Courage
+     Next: __resume_story__
+  2. Talk through the door first
+     Result: The voice trades a secret for a promise you may regret.
+     Effects: -4 Mana, +4 Cunning, +1 Fate
+     Next: __resume_story__
+  3. Sleep in the common room instead
+     Result: Practical fear is still practical.
+     Effects: +18 HP, +1 Cunning
+     Next: __resume_story__
+
+[random_river_ford] Random Scenario: River Ford
+Scene: RIVER
+Story: A cold river cuts across your path. The bridge is damaged, the ford is fast, and a sealed message floats in an oilskin pouch near the far bank.
+Choices:
+  1. Cross the damaged bridge
+     Result: The planks scream, but you make it across with time to spare.
+     Effects: -8 HP, +3 Courage, +1 Fate
+     Next: __resume_story__
+  2. Swim for the message
+     Result: The river steals warmth but gives you a useful warning.
+     Effects: -12 HP, -3 Mana, +1 Courage, +3 Cunning, +2 Fate
+     Next: __resume_story__
+  3. Build a safer crossing
+     Result: Slow work saves pain and earns respect from passing travelers.
+     Effects: +4 HP, +2 Courage, +1 Cunning, +1 Fate
+     Next: __resume_story__
+
+Final Act Chapters
+------------------
+[finale_warden_roads] Final Act: The Roads Ask Your Name
+Scene: FOREST
+Story: The forest opens every road at once. Refugees, spirits, soldiers, thieves, and children all arrive at the same green crossroads, waiting to see what kind of guardian you will become.
+Choices:
+  1. Promise protection to anyone who walks honestly
+     Result: The trees bend into archways and the road itself remembers your oath.
+     Effects: -4 HP, -6 Mana, +2 Courage, +1 Cunning, +3 Fate
+     Next: finale_warden_spirit_court
+  2. Secretly choose who the road should favor
+     Result: The forest obeys, but shadows gather beside every hidden decision.
+     Effects: -4 Mana, +4 Cunning, -2 Fate
+     Next: ending_shadow
+  3. Let the roads choose their own guardian
+     Result: The forest tests whether humility is stronger than control.
+     Effects: +4 HP, +1 Courage, +2 Cunning, +2 Fate
+     Next: finale_warden_spirit_court
+
+[finale_warden_spirit_court] Final Act: Court Beneath Living Branches
+Scene: TEMPLE
+Story: At the center of the woods, the spirit court argues over humans. Some want mercy, some want punishment, and one ancient root wants the kingdom sealed away forever.
+Choices:
+  1. Judge humans and spirits by the same law
+     Result: The court falls silent because fairness is harder to fight than favor.
+     Effects: -5 HP, -8 Mana, +3 Courage, +1 Cunning, +4 Fate
+     Next: ending_warden
+  2. Give every village a voice in the court
+     Result: The spirits dislike democracy, but the forest remembers every broken promise.
+     Effects: -3 HP, -6 Mana, +2 Courage, +3 Cunning, +4 Fate
+     Next: ending_liberator
+  3. Seal the court away to keep the peace
+     Result: Silence returns, but silence is not the same as healing.
+     Effects: +8 HP, +1 Cunning, -3 Fate
+     Next: ending_bound
+
+[finale_tyrant_throne] Final Act: The Throne Wakes
+Scene: CASTLE
+Story: The crown leads you to the throne room before dawn. Every chair turns toward you, every banner stiffens, and the empty throne asks what fear should be used for.
+Choices:
+  1. Rule by command before anyone can resist
+     Result: Your first order lands like a hammer.
+     Effects: +10 HP, -8 Mana, +3 Courage, +1 Cunning, -3 Fate
+     Next: finale_tyrant_revolt
+  2. Build a secret court behind the throne
+     Result: The crown smiles at indirect power.
+     Effects: +8 HP, -4 Mana, +4 Cunning, -2 Fate
+     Next: ending_shadow
+  3. Invite your enemies to kneel or speak
+     Result: Some kneel. Some speak. One draws a knife.
+     Effects: -8 HP, -5 Mana, +2 Courage, +2 Cunning
+     Next: finale_tyrant_revolt
+
+[finale_tyrant_revolt] Final Act: The First Revolt
+Scene: BATTLEFIELD
+Story: Your reign is only one hour old when bells ring across the city. The crowd outside does not know whether it wants freedom, revenge, food, or a better tyrant.
+Choices:
+  1. Crush the revolt in one decisive strike
+     Result: The city learns your mercy has a border.
+     Effects: +12 HP, -6 Mana, +3 Courage, -5 Fate
+     Next: ending_tyrant
+  2. Throw open the gates and hear the crowd
+     Result: You risk everything by treating anger as a warning instead of treason.
+     Effects: -10 HP, -5 Mana, +2 Courage, +3 Cunning, +4 Fate
+     Next: ending_liberator
+  3. Lead the defense without taking the throne
+     Result: People follow the hero they can see, not the crown they fear.
+     Effects: -12 HP, +4 Courage, +1 Cunning, +2 Fate
+     Next: ending_champion
+
+[finale_shadow_network] Final Act: The City Under The City
+Scene: MARKET
+Story: Every hidden tunnel, dock cellar, backroom, and attic safehouse opens to you. The underworld crowns no rulers, but tonight every whisper waits for your signal.
+Choices:
+  1. Unite the guilds under one quiet hand
+     Result: Old rivals bow because you know where every knife is hidden.
+     Effects: +6 HP, +5 Cunning, -2 Fate
+     Next: finale_shadow_last_job
+  2. Burn the records and free your agents
+     Result: Nobody can control a network that no longer exists.
+     Effects: -4 HP, -4 Mana, +2 Courage, +3 Cunning, +3 Fate
+     Next: ending_free
+  3. Sell one final secret to the palace
+     Result: The palace pays in gold and future obedience.
+     Effects: +10 HP, +4 Cunning, -3 Fate
+     Next: finale_shadow_last_job
+
+[finale_shadow_last_job] Final Act: The Last Job
+Scene: DOCKS
+Story: Your final target is impossible: steal the crown's true name from a locked vault under the river while the king, rebels, and spirits all hunt the same prize.
+Choices:
+  1. Keep the true name for yourself
+     Result: Power belongs to whoever can stay unseen long enough to use it.
+     Effects: +8 HP, -4 Mana, +5 Cunning, -3 Fate
+     Next: ending_shadow
+  2. Give the true name to the people
+     Result: A secret becomes a tool everyone can hold.
+     Effects: -5 HP, -5 Mana, +2 Courage, +3 Cunning, +4 Fate
+     Next: ending_liberator
+  3. Use the true name to bind the throne
+     Result: The crown cannot refuse someone who knows what it was called before kings.
+     Effects: +12 HP, -8 Mana, +2 Courage, +3 Cunning, -5 Fate
+     Next: ending_tyrant
+
+[finale_free_unwritten_map] Final Act: The Unwritten Map
+Scene: ROAD
+Story: A blank map appears in your hands. Roads draw themselves only when you stop expecting them, and behind you the old story sends riders to drag you back.
+Choices:
+  1. Run toward the road that does not exist yet
+     Result: The map laughs in ink and opens a path through the sky.
+     Effects: -6 HP, -5 Mana, +3 Courage, +2 Cunning, +3 Fate
+     Next: finale_free_skydoor
+  2. Hide the map in a quiet village
+     Result: Freedom does not always need witnesses.
+     Effects: +6 HP, +2 Cunning, +2 Fate
+     Next: ending_peace
+  3. Tear the map into pieces for other travelers
+     Result: Every scrap becomes someone else's escape route.
+     Effects: -3 HP, -8 Mana, +2 Courage, +3 Cunning, +4 Fate
+     Next: finale_free_skydoor
+
+[finale_free_skydoor] Final Act: Door In The New Stars
+Scene: MOUNTAIN
+Story: At the mountain peak, a door hangs open in the night sky. Beyond it are every life you refused, every fate you broke, and every future still dangerous enough to be yours.
+Choices:
+  1. Step through and leave fate behind
+     Result: The door closes only after you stop looking back.
+     Effects: -4 HP, -10 Mana, +3 Courage, +2 Cunning, +4 Fate
+     Next: ending_free
+  2. Hold the door open for everyone else
+     Result: Freedom becomes louder, messier, and less lonely.
+     Effects: -10 HP, -12 Mana, +3 Courage, +3 Cunning, +5 Fate
+     Next: ending_liberator
+  3. Lock the door so no one can follow
+     Result: Safety feels peaceful until you hear the lock answer from your side.
+     Effects: +8 HP, +2 Cunning, -3 Fate
+     Next: ending_bound
+
+[finale_liberator_square] Final Act: The Square After Victory
+Scene: MARKET
+Story: The palace gates fall. The crowd cheers, then turns to you with the harder question: what happens after people win the right to disagree?
+Choices:
+  1. Let every district choose a speaker
+     Result: The first argument begins before the smoke clears, which means it is working.
+     Effects: -5 HP, -4 Mana, +2 Courage, +3 Cunning, +4 Fate
+     Next: finale_liberator_new_law
+  2. Keep command until the city is stable
+     Result: Temporary power is still power, and it learns your hand quickly.
+     Effects: +6 HP, +3 Courage, +1 Cunning, -1 Fate
+     Next: finale_liberator_new_law
+  3. Hand command to the guard and vanish
+     Result: The city must learn to stand without turning you into a statue.
+     Effects: +2 HP, +1 Courage, +3 Cunning, +3 Fate
+     Next: ending_free
+
+[finale_liberator_new_law] Final Act: The First New Law
+Scene: TEMPLE
+Story: By candlelight, farmers, guards, thieves, mages, refugees, and nobles shout over the first law of the new realm. The old crown waits on the table like a threat.
+Choices:
+  1. Write that no ruler stands above judgment
+     Result: The room goes quiet because everyone understands the cost.
+     Effects: -4 HP, -6 Mana, +2 Courage, +3 Cunning, +5 Fate
+     Next: ending_liberator
+  2. Put yourself above the law to protect it
+     Result: The crowd accepts the excuse before you finish saying it.
+     Effects: +10 HP, -4 Mana, +2 Courage, +2 Cunning, -5 Fate
+     Next: ending_tyrant
+  3. Refuse to write law and trust free choice
+     Result: The room erupts, but nobody can mistake the chaos for chains.
+     Effects: -2 HP, -3 Mana, +1 Courage, +4 Cunning, +3 Fate
+     Next: ending_free
+
+[finale_bound_old_road] Final Act: The Old Road Returns
+Scene: ROAD
+Story: The same road from the beginning appears under your feet. The same moon rises. The same wind says you can still choose, but it sounds less convinced this time.
+Choices:
+  1. Walk the road exactly as written
+     Result: The old story welcomes obedience like an old friend.
+     Effects: +8 HP, +8 Mana, -3 Fate
+     Next: finale_bound_bargain
+  2. Scratch a new direction into the milestone
+     Result: Stone bleeds ink. The road hates edits.
+     Effects: -8 HP, -8 Mana, +2 Courage, +2 Cunning, +2 Fate
+     Next: finale_bound_bargain
+  3. Sit down and refuse the scene
+     Result: For a moment, the story has no idea what to do with you.
+     Effects: -3 HP, -5 Mana, +2 Courage, +3 Cunning, +3 Fate
+     Next: ending_free
+
+[finale_bound_bargain] Final Act: Bargain With The Old Story
+Scene: GRAVEYARD
+Story: The old story arrives wearing the faces of teachers, captains, parents, enemies, and friends. It offers comfort if you stop struggling against the shape it chose.
+Choices:
+  1. Accept the comfort and keep your place
+     Result: The chains become soft enough to forget.
+     Effects: +10 HP, +10 Mana, -4 Fate
+     Next: ending_bound
+  2. Trade one secret for a hidden escape
+     Result: The old story keeps the secret. You keep the door.
+     Effects: +2 HP, -5 Mana, +4 Cunning, -1 Fate
+     Next: ending_shadow
+  3. Choose a small life outside the story
+     Result: It is not glorious, but it is yours.
+     Effects: +6 HP, +2 Cunning, +2 Fate
+     Next: ending_peace
+
+[finale_champion_wall] Final Act: The Last Wall
+Scene: BATTLEFIELD
+Story: The final attack reaches Ashwake at sunrise. The wall is cracked, the gate is burning, and everyone looks at you because heroes are where fear goes to ask for orders.
+Choices:
+  1. Stand on the wall where everyone can see you
+     Result: Your courage becomes contagious and dangerous.
+     Effects: -14 HP, -4 Mana, +4 Courage, +2 Fate
+     Next: finale_champion_after_battle
+  2. Slip out to strike the enemy commander
+     Result: A hero unseen can still end a war.
+     Effects: -10 HP, -6 Mana, +2 Courage, +3 Cunning, +1 Fate
+     Next: finale_champion_after_battle
+  3. Open the gate to evacuate the helpless
+     Result: You may lose the castle, but not the people inside it.
+     Effects: -8 HP, +3 Courage, +2 Cunning, +3 Fate
+     Next: ending_warden
+
+[finale_champion_after_battle] Final Act: After The Songs Begin
+Scene: CASTLE
+Story: The battle ends. Bards already simplify the story while healers count the truth on bloody bandages. Victory asks what you will become when nobody needs saving this minute.
+Choices:
+  1. Serve as protector, not ruler
+     Result: The banner stays high, but the throne stays empty of your name.
+     Effects: -3 HP, +3 Courage, +1 Cunning, +3 Fate
+     Next: ending_champion
+  2. Take command permanently
+     Result: People cheer because they are tired. That makes it easier.
+     Effects: +12 HP, +3 Courage, +1 Cunning, -4 Fate
+     Next: ending_tyrant
+  3. Leave before the songs trap you
+     Result: A hero can survive by refusing to become a symbol.
+     Effects: +8 HP, +2 Cunning, +2 Fate
+     Next: ending_peace
+
+[finale_peace_crossing] Final Act: The Road Away
+Scene: ROAD
+Story: You find a quiet road beyond the last checkpoint. No army follows. No spirit calls. Then a child runs from the village behind you, carrying one final request.
+Choices:
+  1. Stop and hear the request
+     Result: Peace pauses, but it does not disappear.
+     Effects: +2 HP, +1 Courage, +2 Cunning, +2 Fate
+     Next: finale_peace_last_request
+  2. Keep walking before duty finds you again
+     Result: The road accepts your exhaustion without judgment.
+     Effects: +10 HP, +1 Cunning, +2 Fate
+     Next: ending_peace
+  3. Return to help one last time
+     Result: One last time is how legends trick careful people.
+     Effects: -4 HP, +2 Courage, +1 Cunning, +1 Fate
+     Next: finale_peace_last_request
+
+[finale_peace_last_request] Final Act: The Small Thing That Matters
+Scene: VILLAGE
+Story: The village does not ask you to kill a king or break a curse. They ask you to find three missing children before nightfall.
+Choices:
+  1. Find the children and stay for supper
+     Result: The world becomes small enough to hold.
+     Effects: +12 HP, +2 Cunning, +3 Fate
+     Next: ending_peace
+  2. Teach the village how to protect itself
+     Result: You leave behind skills instead of a statue.
+     Effects: +4 HP, +2 Courage, +2 Cunning, +3 Fate
+     Next: ending_warden
+  3. Lead the children toward a future no one picked
+     Result: They laugh at the road like it owes them adventure.
+     Effects: -4 Mana, +1 Courage, +3 Cunning, +3 Fate
+     Next: ending_free
+
+[finale_fallen_last_breath] Final Act: One Last Breath
+Scene: GRAVEYARD
+Story: Darkness closes in, but the story hesitates. Somewhere nearby, water drips, boots run, and a voice asks whether you are finished.
+Choices:
+  1. Force yourself back onto your feet
+     Result: Pain answers first, but your body follows.
+     Effects: +24 HP, -6 Mana, +3 Courage, +2 Fate
+     Next: finale_fallen_dream
+  2. Call out for anyone who can hear
+     Result: Someone answers, though you cannot tell if they are living.
+     Effects: +16 HP, -4 Mana, +1 Courage, +2 Cunning, +1 Fate
+     Next: finale_fallen_dream
+  3. Let the darkness take the choice
+     Result: The road grows quiet around you.
+     Effects: -200 HP, -3 Fate
+     Next: fallen
+
+[finale_fallen_dream] Final Act: The Dream Between Endings
+Scene: TEMPLE
+Story: You dream of a table with three cups: bitter medicine, clear water, and black wine. A stranger says all three are endings, but only one is death.
+Choices:
+  1. Drink the bitter medicine
+     Result: You wake weak, alive, and done with glory.
+     Effects: +18 HP, +1 Cunning, +2 Fate
+     Next: ending_peace
+  2. Drink the clear water
+     Result: You wake with no path left except the one you make.
+     Effects: +10 HP, -5 Mana, +2 Courage, +2 Cunning, +3 Fate
+     Next: ending_free
+  3. Drink the black wine
+     Result: The dream keeps you and sends your legend onward.
+     Effects: -200 HP, -4 Fate
+     Next: fallen
+
+Endings And Random Variants
+---------------------------
+Ending group: ending_warden
+---------------------------
+[ending_warden] Forest Warden
+Scene: ENDING
+Story: You break the curse and become guardian of the roads. People still argue about destiny, but when they enter the forest, they ask permission first.
+Ending node.
+
+[ending_warden_greenroad] Forest Warden: The Green Road
+Scene: ENDING
+Story: The cursed roads bloom under your watch. Merchants, refugees, and lost children begin leaving small carved leaves at your shrine, thanking the guardian they rarely see.
+Ending node.
+
+[ending_warden_spirit_court] Forest Warden: Court Of Spirits
+Scene: ENDING
+Story: The forest spirits name you judge of root, river, and road. Every full moon, humans and spirits bring their disputes to your fire and accept your word as law.
+Ending node.
+
+
+Ending group: ending_tyrant
+---------------------------
+[ending_tyrant] Crowned Tyrant
+Scene: ENDING
+Story: You take the crown and bend the kingdom around your will. The world becomes safer, quieter, and afraid to breathe.
+Ending node.
+
+[ending_tyrant_iron_law] Crowned Tyrant: Iron Law
+Scene: ENDING
+Story: You build a kingdom where no thief steals, no rebel speaks twice, and no village starves unless you permit it. People survive, but they stop singing your name.
+Ending node.
+
+[ending_tyrant_lonely_crown] Crowned Tyrant: The Lonely Crown
+Scene: ENDING
+Story: The crown gives you every throne room, every army, and every secret. Years later, you realize it never promised you a single person who would tell you the truth.
+Ending node.
+
+
+Ending group: ending_shadow
+---------------------------
+[ending_shadow] Master Of Shadows
+Scene: ENDING
+Story: You never sit on a throne, but every throne learns to listen for your footsteps. Fate did not catch you. You caught it first.
+Ending node.
+
+[ending_shadow_guildmaster] Master Of Shadows: Guildmaster
+Scene: ENDING
+Story: The thieves, spies, smugglers, and quiet servants of the realm swear to your hidden banner. Kings still rule in daylight. You own the hours after dark.
+Ending node.
+
+[ending_shadow_vanished] Master Of Shadows: Vanished
+Scene: ENDING
+Story: One morning, every debt owed to you is paid and every enemy forgets your face. You vanish so completely that history argues whether you were one person or a warning.
+Ending node.
+
+
+Ending group: ending_free
+-------------------------
+[ending_free] Fatebreaker
+Scene: ENDING
+Story: You reject the path written for you. The road ahead is uncertain, but every step is yours.
+Ending node.
+
+[ending_free_wanderer] Fatebreaker: The Unmapped Road
+Scene: ENDING
+Story: No map keeps your path for more than a day. You wander through borders, seasons, and stories, always arriving where fate least expects resistance.
+Ending node.
+
+[ending_free_new_stars] Fatebreaker: New Stars
+Scene: ENDING
+Story: The old prophecies fade from the sky. New stars appear, shifting nightly, and every child born under them inherits a future no one has already written.
+Ending node.
+
+
+Ending group: ending_liberator
+------------------------------
+[ending_liberator] Liberator
+Scene: ENDING
+Story: You free people from a future chosen by rulers, spirits, and old magic. The kingdom becomes messy, loud, and alive.
+Ending node.
+
+[ending_liberator_republic] Liberator: The First Vote
+Scene: ENDING
+Story: The kingdom tears down its throne and builds a noisy council hall in its place. The arguments are exhausting, but for the first time they belong to everyone.
+Ending node.
+
+[ending_liberator_restless] Liberator: Revolution Road
+Scene: ENDING
+Story: Freeing one kingdom teaches you how many others are still chained. You leave before statues can find you, carrying rebellion from border to border.
+Ending node.
+
+
+Ending group: ending_bound
+--------------------------
+[ending_bound] Bound To The Old Story
+Scene: ENDING
+Story: You keep your strength, but the world keeps its chains. Years later, you still dream of the blank space where your ending should have been.
+Ending node.
+
+[ending_bound_crown_dream] Bound: The Crown Dream
+Scene: ENDING
+Story: Every night you dream of the crown choosing someone else. Every morning you wake with less memory of the choices you almost made.
+Ending node.
+
+[ending_bound_loop] Bound: The Looping Road
+Scene: ENDING
+Story: The same crossroads returns in every town. The same moon rises over every roof. Somewhere, the real ending waits, but this version of you never reaches it.
+Ending node.
+
+
+Ending group: ending_champion
+-----------------------------
+[ending_champion] Champion Of Ashwake
+Scene: ENDING
+Story: You save the castle and become the hero people needed. Songs simplify what happened, but you remember every cost.
+Ending node.
+
+[ending_champion_general] Champion: General Of The Dawn
+Scene: ENDING
+Story: The broken guard becomes your army, and your army becomes the shield of the realm. Children learn your battles by name before they learn why peace matters.
+Ending node.
+
+[ending_champion_scarred] Champion: The Scarred Banner
+Scene: ENDING
+Story: You win, but victory leaves marks no bard can rhyme away. Your banner flies over Ashwake, stitched with the names of everyone who paid for the song.
+Ending node.
+
+
+Ending group: ending_peace
+--------------------------
+[ending_peace] Quiet Road
+Scene: ENDING
+Story: You walk away before the crown can name you. Some call that cowardice. Others call it wisdom. You call it peace.
+Ending node.
+
+[ending_peace_innkeeper] Quiet Road: Hearthlight
+Scene: ENDING
+Story: Years later, travelers find safety at an inn with no sign. The owner listens more than they speak and always knows which roads are dangerous after moonrise.
+Ending node.
+
+[ending_peace_hidden_hero] Quiet Road: The Hidden Hero
+Scene: ENDING
+Story: No one writes your name in the royal records, but villages survive because someone taught them when to hide, when to run, and when to stand together.
+Ending node.
+
+
+Ending group: fallen
+--------------------
+[fallen] Fallen
+Scene: ENDING
+Story: Your journey ends before the red moon sets. Fate moves on, but another hero may still choose differently.
+Ending node.
+
+[fallen_rescued] Fallen: One More Breath
+Scene: ENDING
+Story: You fall before the road is finished, but strangers drag you from the dark. Your legend ends here. Your life, maybe, does not.
+Ending node.
+
+[fallen_legend] Fallen: Campfire Warning
+Scene: ENDING
+Story: Your bones are never found, but travelers tell your story beside low fires. They change the details each time, always keeping the same warning: choose faster.
+Ending node.
+
+

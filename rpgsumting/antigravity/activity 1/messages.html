@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>University LMS - Messages</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="design.css">
+</head>
+
+<body class="h-screen overflow-hidden flex flex-col">
+    <div id="app-layout" class="flex h-full w-full">
+        <!-- Desktop Nav -->
+        <nav
+            class="hidden md:flex flex-col w-64 bg-white/60 backdrop-blur-md border border-white/50 border-r border-slate-200 h-full pt-6 shadow-sm z-10">
+            <div class="px-6 mb-8 flex items-center gap-3">
+                <div
+                    class="w-9 h-9 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-black text-xl shadow-sm">
+                    E
+                </div>
+                <span class="text-2xl font-black tracking-tight text-slate-800">Edu<span
+                        class="text-emerald-700">Connect</span></span>
+            </div>
+            <a href="dashboard.html"
+                class="nav-btn flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                <i class="fa-solid fa-house mr-3 text-xl"></i> Dashboard
+            </a>
+            <a href="lessons.html"
+                class="nav-btn flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                <i class="fa-solid fa-book-open mr-3 text-xl"></i> Course Modules
+            </a>
+            <a href="assignments.html"
+                class="nav-btn flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                <i class="fa-solid fa-file-arrow-up mr-3 text-xl"></i> Assignments
+            </a>
+            <a href="messages.html"
+                class="nav-btn active flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                <i class="fa-solid fa-comments mr-3 text-xl"></i> Forums & Chat
+            </a>
+            <div class="mt-auto border-t border-slate-200 w-full">
+                <a href="profile.html"
+                    class="nav-btn flex items-center w-full py-4 px-6 text-left text-slate-600 hover:bg-transparent transition">
+                    <i class="fa-solid fa-user mr-3 text-xl"></i> View Profile
+                </a>
+                <a href="login.html"
+                    class="flex items-center w-full py-4 px-6 text-left text-red-600 hover:bg-red-50 transition font-semibold border-t border-slate-100">
+                    <i class="fa-solid fa-arrow-right-from-bracket mr-3 text-xl"></i> Log Out
+                </a>
+            </div>
+        </nav>
+
+        <main class="flex-1 h-full overflow-y-auto bg-transparent pb-20 md:pb-0 tabs-container">
+            <div id="messages-view" class="p-2 md:p-8 h-full flex flex-col">
+                <div
+                    class="mb-2 md:mb-6 bg-white/60 backdrop-blur-md border border-white/50 p-3 md:p-6 rounded-xl border border-slate-300 shadow-sm flex-shrink-0">
+                    <h1 class="text-xl md:text-3xl font-bold text-slate-800 mb-1 md:mb-2">Communication</h1>
+                    <p class="text-xs md:text-base text-slate-600">Addresses the <strong>Accessibility & Consistency</strong> requirements. A
+                        clean, high-contrast chat interface standard across mobile and web platforms facilitates clear
+                        student-teacher communication. Use tabs to switch between Direct Messages and Discussion Forums.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white/60 backdrop-blur-md border border-white/50 rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col flex-1">
+                    <div class="border-b border-slate-200 flex flex-shrink-0">
+                        <button
+                            class="tab-btn active flex-1 py-2 md:py-4 text-sm md:text-base text-center font-semibold text-slate-600 hover:bg-transparent transition"
+                            data-pane="tab-chat">Direct Messages</button>
+                        <button
+                            class="tab-btn flex-1 py-2 md:py-4 text-sm md:text-base text-center font-semibold text-slate-600 hover:bg-transparent transition"
+                            data-pane="tab-forum">Discussion Forums</button>
+                    </div>
+
+                    <div id="tab-chat" class="tab-pane flex-1 flex flex-col overflow-hidden">
+                        <div class="p-2 md:p-4 border-b border-slate-200 bg-transparent flex items-center">
+                            <div
+                                class="w-8 h-8 md:w-10 md:h-10 text-sm md:text-base rounded-full bg-slate-300 flex items-center justify-center text-slate-600 font-bold mr-2 md:mr-3">
+                                PT
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-sm md:text-base text-slate-800">Prof. Thomas</h3>
+                                <p class="text-[10px] md:text-xs text-emerald-600"><i class="fa-solid fa-circle text-[6px] md:text-[8px] mr-1"></i>
+                                    Online</p>
+                            </div>
+                        </div>
+
+                        <div id="chat-window"
+                            class="flex-1 overflow-y-auto p-2 md:p-4 flex flex-col gap-2 md:gap-4 bg-transparent border-t border-slate-200/50">
+                            <!-- Date Separator -->
+                            <div class="w-full flex justify-center my-1 md:my-2">
+                                <span
+                                    class="text-[10px] md:text-xs font-semibold text-slate-400 bg-slate-100 px-2 md:px-3 py-0.5 md:py-1 rounded-full">Today</span>
+                            </div>
+
+                            <div class="self-start max-w-[85%] md:max-w-[60%]">
+                                <div
+                                    class="bg-white text-xs md:text-sm text-slate-700 p-2 md:p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-200">
+                                    Hello Alex, your wireframes look good. Make sure to double check the contrast ratio
+                                    on the buttons.
+                                </div>
+                                <span class="text-[10px] md:text-xs text-slate-500 mt-1 block">10:42 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="p-2 md:p-4 border-t border-slate-200 bg-white/60 flex">
+                            <input type="text" id="chat-input" placeholder="Type your message..."
+                                class="flex-1 px-3 md:px-4 py-2 md:py-3 text-sm border border-slate-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
+                            <button id="btn-send-msg"
+                                class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 md:px-6 text-sm md:text-base font-bold rounded-r-lg transition">Send</button>
+                        </div>
+                    </div>
+
+                    <div id="tab-forum" class="tab-pane hide flex-1 overflow-y-auto p-4 md:p-6 bg-transparent">
+                        <!-- Search and New Post -->
+                        <div class="flex justify-between items-center mb-3 md:mb-6">
+                            <div class="relative w-full md:w-1/2">
+                                <i
+                                    class="fa-solid fa-search absolute left-3 md:left-4 top-1/2 transform -translate-y-1/2 text-slate-400 text-sm"></i>
+                                <input type="text" placeholder="Search topics..."
+                                    class="w-full pl-9 md:pl-10 pr-3 md:pr-4 py-1.5 md:py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
+                            </div>
+                            <button
+                                class="hidden md:block bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-semibold transition ml-4 shadow-sm">
+                                <i class="fa-solid fa-plus mr-2"></i>New Topic
+                            </button>
+                        </div>
+
+                        <!-- Topics -->
+                        <div class="space-y-2 md:space-y-4">
+                            <div
+                                class="bg-white/80 border border-slate-200 p-3 md:p-4 rounded-lg hover:border-emerald-500 transition cursor-pointer shadow-sm">
+                                <div class="flex justify-between items-start mb-1 md:mb-2">
+                                    <h3 class="font-bold text-slate-800 text-sm md:text-lg">HCI Project Requirements (Q&A)</h3>
+                                    <span
+                                        class="text-[10px] md:text-xs font-semibold text-emerald-700 bg-emerald-50 px-1.5 md:px-2 py-0.5 md:py-1 rounded border border-emerald-100"><i
+                                            class="fa-solid fa-thumbtack mr-1"></i>Pinned</span>
+                                </div>
+                                <p class="text-xs md:text-sm text-slate-600 mb-2 md:mb-3 leading-tight md:leading-normal">Does anyone know if we are required to implement
+                                    real backend logic for the midterm, or if HTML/CSS/JS is enough?</p>
+                                <div class="flex items-center justify-between text-[10px] md:text-xs text-slate-500">
+                                    <div class="flex items-center">
+                                        <div
+                                            class="w-5 h-5 md:w-6 md:h-6 text-[10px] md:text-sm rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold mr-1.5 md:mr-2 border border-emerald-200">
+                                            AS</div>
+                                        <span class="font-medium text-slate-700 mr-2 md:mr-4">Alex Student</span>
+                                    </div>
+                                    <span class="flex items-center bg-slate-100 px-1.5 md:px-2 py-0.5 md:py-1 rounded"><i
+                                            class="fa-solid fa-comment mr-1 text-slate-400"></i> 14 replies</span>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white/80 border border-slate-200 p-3 md:p-4 rounded-lg hover:border-emerald-500 transition cursor-pointer shadow-sm">
+                                <div class="flex justify-between items-start mb-1 md:mb-2">
+                                    <h3 class="font-bold text-slate-800 text-sm md:text-lg">Help with Flexbox vs Grid</h3>
+                                    <span class="text-[10px] md:text-xs text-slate-500">1 day ago</span>
+                                </div>
+                                <p class="text-xs md:text-sm text-slate-600 mb-2 md:mb-3 leading-tight md:leading-normal">I'm struggling to make the dashboard responsive
+                                    on mobile devices using flex. Would CSS Grid be better?</p>
+                                <div class="flex items-center justify-between text-[10px] md:text-xs text-slate-500">
+                                    <div class="flex items-center">
+                                        <div
+                                            class="w-5 h-5 md:w-6 md:h-6 text-[10px] md:text-sm rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold mr-1.5 md:mr-2 border border-blue-200">
+                                            JT</div>
+                                        <span class="font-medium text-slate-700 mr-2 md:mr-4">Jessica T.</span>
+                                    </div>
+                                    <span class="flex items-center bg-slate-100 px-1.5 md:px-2 py-0.5 md:py-1 rounded"><i
+                                            class="fa-solid fa-comment mr-1 text-slate-400"></i> 5 replies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <nav
+            class="md:hidden fixed bottom-0 w-full bg-white/60 backdrop-blur-md border border-white/50 border-t border-slate-200 flex justify-around py-2 px-1 pb-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-20">
+            <a href="dashboard.html"
+                class="nav-btn flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-house text-2xl mb-1"></i><span class="text-[10px] font-semibold">Home</span>
+            </a>
+            <a href="lessons.html" class="nav-btn flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-book-open text-2xl mb-1"></i><span class="text-[10px] font-semibold">Learn</span>
+            </a>
+            <a href="assignments.html"
+                class="nav-btn flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-file-arrow-up text-2xl mb-1"></i><span
+                    class="text-[10px] font-semibold">Submit</span>
+            </a>
+            <a href="messages.html"
+                class="nav-btn active flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-comments text-2xl mb-1"></i><span class="text-[10px] font-semibold">Chat</span>
+            </a>
+            <a href="profile.html" class="nav-btn flex flex-col items-center justify-center flex-1 text-slate-500 pb-2">
+                <i class="fa-solid fa-user text-2xl mb-1"></i><span class="text-[10px] font-semibold">Profile</span>
+            </a>
+            <a href="login.html" class="flex flex-col items-center justify-center flex-1 text-red-500 pb-2">
+                <i class="fa-solid fa-arrow-right-from-bracket text-2xl mb-1"></i><span
+                    class="text-[10px] font-semibold">Logout</span>
+            </a>
+        </nav>
+    </div>
+    <script src="functions.js"></script>
+</body>
+
+</html>

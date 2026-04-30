@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Gear | Advanced E-Commerce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a onclick="navigate('home')" class="logo">Aura<span>Gear</span></a>
+            <div class="nav-icons">
+                <button class="nav-btn" onclick="filterWishlist()">❤️ Wishlist</button>
+                <button class="nav-btn" onclick="openCart()">
+                    🛒 Cart <span class="cart-badge" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="view-home" class="app-view active">
+        <aside class="filters">
+            <h3 style="margin-bottom: 1rem; border-bottom: 1px solid #2d2e38; padding-bottom: 0.5rem;">Filters</h3>
+            <button class="btn-outline" style="margin-bottom: 1rem; padding: 0.5rem;" onclick="renderProducts(allProducts)">Clear Filters</button>
+            <div style="margin-bottom: 1.5rem;">
+                <h4 style="margin-bottom: 0.5rem; color: var(--text-secondary);">Categories</h4>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label><input type="radio" name="cat" onclick="filterCategory('Mice')"> Mice</label>
+                    <label><input type="radio" name="cat" onclick="filterCategory('Keyboards')"> Keyboards</label>
+                    <label><input type="radio" name="cat" onclick="filterCategory('Headsets')"> Headsets</label>
+                    <label><input type="radio" name="cat" onclick="filterCategory('Deskmats')"> Deskmats</label>
+                </div>
+            </div>
+        </aside>
+
+        <main class="store-content">
+            <div class="store-header">
+                <h2>All Products (<span id="product-count">100</span>)</h2>
+                <select id="sort-select" style="width: 200px; margin-bottom: 0;" onchange="sortProducts()">
+                    <option value="default">Sort by: Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Top Rated</option>
+                </select>
+            </div>
+            <div class="product-grid" id="product-grid"></div>
+        </main>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closeCart()"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header" style="display: flex; justify-content: space-between;">
+            <h2>Your Cart</h2>
+            <button class="close-btn" onclick="closeCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;">
+                <span>Total:</span>
+                <span id="cart-total-price">₱0</span>
+            </div>
+            <button class="btn-primary" onclick="alert('Proceeding to checkout workflow...')">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
